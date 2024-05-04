@@ -11,7 +11,7 @@ const usuarios = require('./database/tables/usuarios'); // Archivo contenedor de
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 const authMiddleWare = require('./middlewares/authMiddleware');
-//const carritoController = require('./controllers/carritoController');
+const carritoController = require('./controllers/carritoController');
 
 //Configura Cookie Parser
 app.use(cookieParser());
