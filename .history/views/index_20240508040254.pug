@@ -2,11 +2,10 @@ extends layout
 
 block content
     .main_container
-        .center-text
-            h1 #{title}
-            p Todo ArchiMago necesita esconder sus secretos. 
-            p Entregale al Omnissiah tu fé y se recompensado con conocimiento.
-            p !Que el Dios Maquina te guie al encriptar tu mensaje¡
+        h1 #{title}
+        p Todo ArchiMago necesita esconder sus secretos. 
+        p Entregale al Omnissiah tu fé y se recompensado con conocimiento.
+        p !Que el Dios Maquina te guie al encriptar tu mensaje¡
         .text-content
             form(action="/result", method="post")
                 label(for="texto") Texto a Encriptar:

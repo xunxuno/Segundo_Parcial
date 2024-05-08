@@ -16,11 +16,37 @@ nav ul {
 }
 
 nav ul li {
-  margin-right: 10px;
+  margin-right: 200%;
+  list-style: none;
 }
 
 nav ul li:last-child {
   margin-right: 0;
+}
+
+.main_container {
+  align-items: center;
+  padding-right: 20%;
+  padding-left: 20%;
+  padding-top: 2%;
+}
+
+.center-text {
+  margin: 0% 20% 0 20%;
+  max-width: 800px;
+  text-align: center;
+}
+
+.text-content {
+  font-size: 180%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.text-content #texto {
+  text-align: center;
+  font-size: 230%;
+  height: 300px;
 }
 
 .container {
@@ -59,14 +85,14 @@ select {
 
 button {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #6a5111;
   color: white;
   border: none;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #ffb700;
 }
 
 /*# sourceMappingURL=styles.css.map */
