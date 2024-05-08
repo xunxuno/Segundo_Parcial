@@ -4,7 +4,7 @@ const router = express.Router();
 
 // Rutas públicas
 router.get('/', (req, res) => {
-  res.render('index', { title: req.user != null ? `Bienvenido ${req.user.nombre}` : 'Vox Scritus', user: req.user != null ? `${req.user.nombre}` : ''});
+  res.render('index');
 });
 
 module.exports = router;
