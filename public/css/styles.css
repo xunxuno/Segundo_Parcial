@@ -37,9 +37,16 @@ nav ul li:last-child {
   text-align: center;
 }
 
-.text-content {
-  font-size: 180%;
+/*.text-content
+ * font-size: 180%
+ * text-align: center
+ * font-weight: bold*/
+.titulo-text {
   text-align: center;
+}
+
+.titulo-text label {
+  font-size: 200%;
   font-weight: bold;
 }
 
@@ -62,7 +69,7 @@ h1 {
 p {
   font-size: 1.2em;
   line-height: 1.4;
-  color: white;
+  color: #ffb700;
 }
 
 .text-content {
