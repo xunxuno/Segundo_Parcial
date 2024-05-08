@@ -1,0 +1,34 @@
+extends layout
+
+block content
+    .main_container
+        .center-text
+            h1 #{title}
+            p Todo ArchiMago necesita esconder sus secretos. 
+            p Entregale al Omnissiah tu fé y se recompensado con conocimiento.
+            p !Que el Dios Maquina te guie al encriptar tu mensaje¡
+        .text-content
+            form(action="/result", method="post")
+                .titulo-text
+                    label(for="texto", class="tituloT") Texto a Encriptar:
+                    input(type="text", id="texto", name="texto")
+                    br
+                label(for="origen") De:
+                select(id="origen", name="origen")
+                    option(value="es") Español
+                    option(value="coc") Codigo Cesar
+                    option(value="sus") Sustitucion
+                    option(value="b64") Base 64
+                    option(value="hex") Hexadecimal
+                    // Agrega más opciones según tus necesidades
+                br
+                label(for="destino") A:
+                select(id="destino", name="destino")
+                    option(value="coc") Codigo Cesar
+                    option(value="sus") Sustitucion
+                    option(value="b64") Base 64
+                    option(value="hex") Hexadecimal
+                    option(value="es") Español
+                    // Agrega más opciones según tus necesidades
+                br
+        button(type="submit") Encriptar
