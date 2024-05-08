@@ -66,32 +66,10 @@ passport.deserializeUser(async (id, done) => {
   });
 });
 
-// Variable global para almacenar el carrito en caché
+// Variable global para almacenar la palabra en caché
 let palabraCache = {};
 
-// Middleware para obtener el carrito del usuario desde la caché
-/*app.use(async (req, res, next) => {
-  if (req.user && req.user.id) {
-    // Verificar si el carrito está en la caché
-    if (palabraCache[req.user.id]) {
-      // Utilizar el carrito de la caché
-      res.locals.carrito = palabraCache[req.user.id];
-    } else {
-      // Obtener el carrito de la base de datos
-      let carritoDB = await carritoController.obtenerProductos(req.user.id);
-      // Almacenar el carrito en la caché
-      carritoCache[req.user.id] = carritoDB;
-      // Utilizar el carrito de la base de datos
-      res.locals.carrito = carritoDB;
-    }
-  } else {
-    // Si el usuario no está autenticado, utilizar el carrito de la sesión
-    res.locals.carrito = req.session.carrito || [];
-  }
 
-  console.log(`Solicitud recibida: ${req.method} ${req.url}`);
-  next();
-});*/
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -110,33 +88,7 @@ app.use(express.json());
 
 app.use('/', router);
 
-//Ruta para cerrar sesión
-/*app.get('/logout', async (req, res) => {
-  await req.logout(async (err) => {
-    if (err) {
-      // Manejo del error, si es necesario
-      console.error(err);
-    }
-    //req.session.destroy(); // Eliminar la sesión completa
-    await req.session.destroy((err) => {
-      if (err) {
-        console.error('Error al destruir la sesión:', err);
-        return res.status(500).send('Error al cerrar sesión');
-      }
-      console.log('req.session.destroy finalizado correctamente');
-    });
-    // Eliminar el contenido del almacén de sesiones
-    await req.sessionStore.clear((err) => {
-      if (err) {
-        console.error('Error al limpiar el almacén de sesiones:', err);
-        return res.status(500).send('Error al cerrar sesión');
-      }
-      console.log('req.sessionStore.clear finalizado correctamente');
-    });
-    res.clearCookie('token');
-    res.redirect('/'); // Redirigir a la página principal u otra página de tu elección
-  });
-});*/
+
 
 
 // Puerto en el que escucha el servidor

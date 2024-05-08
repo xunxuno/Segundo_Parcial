@@ -4,7 +4,9 @@
   "description": "En este repositorio se encuentra mi proyecto para el segundo parcial, el cual consiste en una pagina para cifrar textos",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass": "sass styles/sass/styles.sass:public/css/styles.css",
+    "sass-watch": "sass --watch styles/sass/styles.sass:public/css/styles.css",
+    "start": "npm run sass && nodemon server.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,10 +21,14 @@
     "flash": "^1.1.0",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.9.7",
+    "nodemon": "^3.1.0",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
     "pug": "^3.0.2",
     "sass": "^1.77.0",
     "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }
