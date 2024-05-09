@@ -28,11 +28,11 @@ nav ul li {
   list-style: none;
   text-decoration: none;
   color: #ffb700;
-  margin-right: 200%;
+  margin-right: 50%;
 }
 
 nav ul li:last-child {
-  margin-right: 0;
+  margin-right: 10%;
 }
 
 .main_container {
@@ -110,6 +110,37 @@ select {
   margin: 5px 0;
   box-sizing: border-box;
   color: black;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* login */
+.loginContainer {
+  margin-top: 40px;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.loginContainer label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+input[type=password] {
+  width: 95%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 button {

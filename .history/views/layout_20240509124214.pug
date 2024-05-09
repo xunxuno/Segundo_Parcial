@@ -12,8 +12,10 @@ html
       ul
         li
           a(href='/') Inicio
-        li
-          a(href='/login') Iniciar Sesion
+        //li
+          a(href='/carrito')
+            i(class='material-symbols-rounded') Historial
+            span.badge= carrito.length
         if user != ''
           li
             a(href='/') Magos
