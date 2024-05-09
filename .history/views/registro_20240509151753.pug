@@ -1,0 +1,20 @@
+extends layout
+
+block content
+
+    .containerRegistro
+      h2 Registro de Usuario
+      form(action="/register", method="post")
+        .form-group
+          label(for="username") Usuario:
+          input(type="text", id="username", name="username", required)
+        .form-group
+          label(for="email") Correo Electrónico:
+          input(type="email", id="email", name="email", required)
+        .form-group
+          label(for="password") Contraseña:
+          input(type="password", id="password", name="password", required)
+        .form-group
+          label(for="confirm-password") Confirmar Contraseña:
+          input(type="password", id="confirm-password", name="confirm-password", required)
+        button(type="submit") Registrarse
