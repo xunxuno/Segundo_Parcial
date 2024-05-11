@@ -12,9 +12,9 @@ html
       ul
         li
           a(href='/') Inicio
-        if user == ''
+        if user = ''
           li
-              a(href='/login') Iniciar Sesion
+            a(href='/login') Iniciar Sesion
         if user != ''
           li
             a(href='/') Magos
