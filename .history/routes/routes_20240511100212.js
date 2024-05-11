@@ -8,14 +8,14 @@ const router = express.Router();
 const index = require('./index');
 const result = require('./result');
 const login = require('./login');
-const registro = require('./registro');
+const registro = requiere('./registro');
 
 
 // Configura las rutas
 router.use('/', index);
 router.use('/result', result);
 router.use('/login', login);
-router.use('/registro', registro);
+router.use('./registro', registro);
 
 
 module.exports = router;

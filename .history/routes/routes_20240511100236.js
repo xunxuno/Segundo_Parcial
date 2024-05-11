@@ -15,7 +15,7 @@ const registro = require('./registro');
 router.use('/', index);
 router.use('/result', result);
 router.use('/login', login);
-router.use('/registro', registro);
+router.use('./registro', registro);
 
 
 module.exports = router;
