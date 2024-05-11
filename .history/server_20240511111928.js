@@ -16,8 +16,6 @@ const authMiddleWare = require('./middlewares/authMiddleware');
 //Configura Cookie Parser
 app.use(cookieParser());
 
-
-
 //Configura DotEnv
 dotenv.config();
 
@@ -37,7 +35,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Configurar estrategia de autenticación local
-passport.use(new LocalStrategy(
+/*passport.use(new LocalStrategy(
   async (username, password, done) => {
     try {
       const user = await usuarios.obtenerPorNombre(username);
@@ -53,7 +51,7 @@ passport.use(new LocalStrategy(
       return done(err);
     }
   }
-));
+));*/
 
 
 passport.serializeUser((user, done) => {

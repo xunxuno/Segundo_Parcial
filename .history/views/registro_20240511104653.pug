@@ -5,7 +5,7 @@ block content
   .containerRegistro
     h2 Registro de Usuario
 
-    form(action='/registrar_usuario' method='POST' class='registro-form')
+    form(action='/registro' method='POST' class='registro-form')
       .form-group
         label(for='nombre' class='form-label') Nombre
         input(type='text' name='nombre' id='nombre' placeholder='Nombre' class='form-input', required)
@@ -17,10 +17,6 @@ block content
       .form-group
         label(for='password' class='form-label') Contraseña
         input(type='password' name='password' id='password' placeholder='Contraseña' class='form-input', required)
-
-      .form-group
-        label(for='confirmPassword' class='form-label') Confirmar Contraseña
-        input(type='password' name='confirmPassword' id='confirmPassword' placeholder='Confirmar contraseña' class='form-input', required)
 
       .form-group
         button(type='submit' class='submit-button') Registrarse

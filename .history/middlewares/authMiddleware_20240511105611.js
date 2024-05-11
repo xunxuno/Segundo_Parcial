@@ -42,14 +42,9 @@ async function getHash(passwordString) {
     return password_hash;
 }
 
-async function comparePassword(passwordString, bdHash) {
-    const compareHashes = await bcrypt.compare(passwordString, bdHash);
-    return compareHashes;
-}
 
 module.exports = {
     authenticate,
     generateToken,
     getHash,
-    comparePassword
 };

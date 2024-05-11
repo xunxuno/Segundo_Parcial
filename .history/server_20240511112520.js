@@ -16,6 +16,8 @@ const authMiddleWare = require('./middlewares/authMiddleware');
 //Configura Cookie Parser
 app.use(cookieParser());
 
+// Configura middleware de autenticación
+app.use(authMiddleware.authenticate);
 
 
 //Configura DotEnv
