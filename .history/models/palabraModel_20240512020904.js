@@ -256,9 +256,9 @@ function textoABase64(texto) {
   }
   
   // Ejemplo de uso
-  /*let texto = "Hola mundo";
+  /*let texto = "Hola mundo";*/
   let textoEnBase64 = textoABase64(texto);
-  console.log("Texto en Base64:", textoEnBase64);*/
+  console.log("Texto en Base64:", textoEnBase64);
 
 /*
 

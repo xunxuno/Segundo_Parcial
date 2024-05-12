@@ -1,12 +1,10 @@
 const palabraController = require('../models/palabraModel');
 
-const palabraCache = {};
-
 
  // Llamar a la función correspondiente según las selecciones del usuario
-switch(palabraCache.origen) {
+switch(origen) {
     case 'es':
-        switch (palabraCache.destino) {
+        switch (destino) {
             case 'coc':
                 //funcion
                 break;
@@ -15,9 +13,9 @@ switch(palabraCache.origen) {
                 break;
             case 'b64':
                 //funcion
-                let textoBase64 = textoABase64(palabraCache.texto);
+                let textoBase64 = textoABase64(texto);
                 // Almacena el texto original y el resultado en palabraCache
-                palabraCache.texto = texto;
+                palabraCache.textoOriginal = texto;
                 palabraCache.resultado = textoBase64;
                 palabraCache.origen = origen;
                 palabraCache.destino = destino;
@@ -35,7 +33,7 @@ switch(palabraCache.origen) {
                 break;
         }
     case 'coc':
-        switch (palabraCache.destino) {
+        switch (destino) {
             case 'es':
                 //funcion
                 break;
@@ -56,7 +54,7 @@ switch(palabraCache.origen) {
                 break;
         }
     case 'sus':
-        switch (palabraCache.destino) {
+        switch (destino) {
             case 'coc':
                 //funcion
                 break;
@@ -77,7 +75,7 @@ switch(palabraCache.origen) {
                 break;
         }
     case 'b64':
-        switch (palabraCache.destino) {
+        switch (destino) {
             case 'coc':
                 //funcion
                 break;
@@ -98,7 +96,7 @@ switch(palabraCache.origen) {
                 break;
         }
     case 'hex':
-        switch (palabraCache.destino) {
+        switch (destino) {
             case 'coc':
                 //funcion
                 break;
@@ -119,7 +117,7 @@ switch(palabraCache.origen) {
                 break;
         }
     case 'bin':
-        switch (palabraCache.destino) {
+        switch (destino) {
             case 'coc':
                 //funcion
                 break;

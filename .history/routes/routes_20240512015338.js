@@ -21,10 +21,7 @@ router.use('/registro', registro);
 router.use('/registrar_usuario', registrarUsuario);
 
 // Ruta para manejar la solicitud POST y dirigirla al controlador
-router.post('/result', (req, res) => {
-    const origen = req.body.origen;
-    // Resto del código...
-});
+router.post('/result', palabraController.procesarDatos);
 
 
 module.exports = router;

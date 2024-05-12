@@ -15,9 +15,9 @@ switch(palabraCache.origen) {
                 break;
             case 'b64':
                 //funcion
-                let textoBase64 = textoABase64(palabraCache.texto);
+                let textoBase64 = textoABase64(texto);
                 // Almacena el texto original y el resultado en palabraCache
-                palabraCache.texto = texto;
+                palabraCache.textoOriginal = texto;
                 palabraCache.resultado = textoBase64;
                 palabraCache.origen = origen;
                 palabraCache.destino = destino;

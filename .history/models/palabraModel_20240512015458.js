@@ -29,7 +29,7 @@ async function obtenerHistorial() {
 
 // españoll a cesar
 
-/*function cifradoCesar(palabra, desplazamiento) {
+function cifradoCesar(palabra, desplazamiento) {
     let palabraEncriptada = '';
   
     for (let i = 0; i < palabra.length; i++) {
@@ -256,11 +256,11 @@ function textoABase64(texto) {
   }
   
   // Ejemplo de uso
-  /*let texto = "Hola mundo";
+  let texto = "Hola mundo";
   let textoEnBase64 = textoABase64(texto);
-  console.log("Texto en Base64:", textoEnBase64);*/
+  console.log("Texto en Base64:", textoEnBase64);
 
-/*
+
 
   /////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -320,4 +320,4 @@ function textoABinario(texto2) {
   let textoOriginal1 = binarioATexto(binario.replace(/\s+/g, '')); // Elimina los espacios en blanco
   console.log("Texto original:", textoOriginal1);
   
-  */
+  
