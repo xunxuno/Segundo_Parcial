@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const authMiddleware = require('../middlewares/authMiddleware');
-const { procesarDatos, palabraCache } = require('../controllers/palabraController');
 const palabraController = require('../controllers/palabraController');
+const palabraCache = require('../cache');
 
 // Define la ruta GET para /resultado
 router.get('/', (req, res) => {

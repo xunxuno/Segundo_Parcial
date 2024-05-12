@@ -1,6 +1,6 @@
 const palabraModel = require('../models/palabraModel');
 
-const palabraCache = {};
+
 
 // Manejar la solicitud POST y dirigirla al controlador
 const procesarDatos = (req, res) => {
@@ -165,4 +165,4 @@ const procesarDatos = (req, res) => {
         break;
 }
 };
-module.exports = { procesarDatos, palabraCache }; 
+module.exports = { procesarDatos };

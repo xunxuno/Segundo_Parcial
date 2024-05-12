@@ -165,4 +165,4 @@ const procesarDatos = (req, res) => {
         break;
 }
 };
-module.exports = { procesarDatos, palabraCache }; 
+module.exports = { procesarDatos };

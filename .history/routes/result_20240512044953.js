@@ -1,8 +1,20 @@
 const express = require('express');
 const router = express.Router();
 const authMiddleware = require('../middlewares/authMiddleware');
-const { procesarDatos, palabraCache } = require('../controllers/palabraController');
 const palabraController = require('../controllers/palabraController');
+
+// Función para procesar los datos del formulario
+const procesarDatos = (req, res) => {
+  console.log('Inicio de procesarDatos');
+  // Capturar los datos del formulario y almacenarlos en palabraCache
+  palabraCache.texto = req.body.texto;
+  palabraCache.origen = req.body.origen;
+  palabraCache.destino = req.body.destino;
+  console.log('datos recibidos');
+
+  // Llamar a la función procesarDatos del controlador
+  palabraController.procesarDatos(req, res);
+};
 
 // Define la ruta GET para /resultado
 router.get('/', (req, res) => {

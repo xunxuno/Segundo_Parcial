@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const authMiddleware = require('../middlewares/authMiddleware');
-const { procesarDatos, palabraCache } = require('../controllers/palabraController');
 const palabraController = require('../controllers/palabraController');
+
+let palabraCache = {}; // Inicialización básica de palabraCache
 
 // Define la ruta GET para /resultado
 router.get('/', (req, res) => {
@@ -10,7 +11,6 @@ router.get('/', (req, res) => {
     
     
     // Renderizar la vista 'result' y pasar los datos necesarios
-    console.log('renderizado exitoso');
     res.render('result', { title: 'Result', palabraCache: palabraCache });
   } else {
     // Si falta algún dato en palabraCache, imprimir un mensaje en la consola y redirigir a la página principal

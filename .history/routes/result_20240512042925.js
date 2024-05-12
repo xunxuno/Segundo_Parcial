@@ -1,23 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const authMiddleware = require('../middlewares/authMiddleware');
-const { procesarDatos, palabraCache } = require('../controllers/palabraController');
 const palabraController = require('../controllers/palabraController');
 
+let palabraCache = {}; // Inicialización básica de palabraCache
+
 // Define la ruta GET para /resultado
-router.get('/', (req, res) => {
+router.get('/result', (req, res) => {
+  // Verificar si palabraCache está definida y contiene los datos necesarios
   if (palabraCache && palabraCache.textoOriginal && palabraCache.resultado && palabraCache.origen && palabraCache.destino) {
-    
-    
     // Renderizar la vista 'result' y pasar los datos necesarios
-    console.log('renderizado exitoso');
     res.render('result', { title: 'Result', palabraCache: palabraCache });
   } else {
-    // Si falta algún dato en palabraCache, imprimir un mensaje en la consola y redirigir a la página principal
-    console.log('Falta algún dato en palabraCache');
-    // Imprimir el contenido de palabraCache en la consola
-    console.log('Contenido de palabraCache:', palabraCache);
+    // Si falta algún dato en palabraCache, redirigir a la página principal o mostrar un mensaje de error
     res.redirect('/');
+    // O puedes renderizar una vista de error
+    // res.render('error', { message: 'Error: Falta información en palabraCache' });
   }
 });
 
