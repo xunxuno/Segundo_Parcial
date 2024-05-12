@@ -267,12 +267,11 @@ function textoABase64(texto) {
 
   // Base64 a ESP
 
-  function base64ATexto(textoEnBase64) {
+  function base64ATexto(base64) {
     // Decodifica el texto Base64 a texto original
-    let texto = Buffer.from(textoEnBase64, 'base64').toString('utf-8');
+    let texto = Buffer.from(base64, 'base64').toString('utf-8');
     return texto;
-}
-
+  }
   
   /*// Ejemplo de uso
   let textoEnBase641 = "SG9sYSBtdW5kbw==";
@@ -324,7 +323,6 @@ function textoABinario(texto2) {
   
   
   module.exports = {
-    textoABase64,
-    base64ATexto
+    textoABase64
   };
   

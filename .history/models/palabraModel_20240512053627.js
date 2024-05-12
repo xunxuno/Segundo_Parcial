@@ -269,10 +269,9 @@ function textoABase64(texto) {
 
   function base64ATexto(textoEnBase64) {
     // Decodifica el texto Base64 a texto original
-    let texto = Buffer.from(textoEnBase64, 'base64').toString('utf-8');
+    let texto = Buffer.from(base64, 'textoEnBase64').toString('utf-8');
     return texto;
-}
-
+  }
   
   /*// Ejemplo de uso
   let textoEnBase641 = "SG9sYSBtdW5kbw==";

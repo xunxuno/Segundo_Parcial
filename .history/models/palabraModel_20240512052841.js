@@ -267,12 +267,11 @@ function textoABase64(texto) {
 
   // Base64 a ESP
 
-  function base64ATexto(textoEnBase64) {
+  function base64ATexto(base64) {
     // Decodifica el texto Base64 a texto original
-    let texto = Buffer.from(textoEnBase64, 'base64').toString('utf-8');
+    let texto = Buffer.from(base64, 'base64').toString('utf-8');
     return texto;
-}
-
+  }
   
   /*// Ejemplo de uso
   let textoEnBase641 = "SG9sYSBtdW5kbw==";
@@ -297,10 +296,10 @@ function textoABinario(texto2) {
     return binario;
   }
   
-  /*// Ejemplo de uso
+  // Ejemplo de uso
   let texto2 = "Hola mundo";
   let textoEnBinario = textoABinario(texto2);
-  console.log("Texto en binario:", textoEnBinario);*/
+  console.log("Texto en binario:", textoEnBinario);
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -317,14 +316,13 @@ function textoABinario(texto2) {
     return texto;
   }
   
-  /*// Ejemplo de uso
+  // Ejemplo de uso
   let binario = "01001000 01101111 01101100 01100001 00100000 01101101 01110101 01101110 01100100 01101111";
   let textoOriginal1 = binarioATexto(binario.replace(/\s+/g, '')); // Elimina los espacios en blanco
-  console.log("Texto original:", textoOriginal1);*/
+  console.log("Texto original:", textoOriginal1);
   
   
   module.exports = {
-    textoABase64,
-    base64ATexto
+    textoABase64
   };
   

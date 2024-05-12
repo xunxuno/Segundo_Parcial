@@ -272,7 +272,6 @@ function textoABase64(texto) {
     let texto = Buffer.from(textoEnBase64, 'base64').toString('utf-8');
     return texto;
 }
-
   
   /*// Ejemplo de uso
   let textoEnBase641 = "SG9sYSBtdW5kbw==";

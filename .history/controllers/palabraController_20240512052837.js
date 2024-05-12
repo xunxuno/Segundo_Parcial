@@ -110,7 +110,7 @@ const procesarDatos = (req, res) => {
                 palabraCache.resultado = base64Texto;
                 palabraCache.origen = palabraCache.origen;
                 palabraCache.destino = palabraCache.destino;
-                console.log('b64-es exitoso');
+                console.log('b64 exitoso');
                 // Redirige a la página de resultado después de almacenar los datos en palabraCache
                 res.redirect('/result');
                 console.log('Texto Original:', palabraCache.textoOriginal);
