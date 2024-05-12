@@ -344,8 +344,6 @@ function hexAtexto(textoHex) {
     textoABase64,
     base64ATexto,
     binarioATexto,
-    textoABinario,
-    textoAHex,
-    hexAtexto
+    textoABinario
   };
   

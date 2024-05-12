@@ -330,22 +330,11 @@ function textoABinario(texto2) {
     }
     return hex;
 }
-
-//hexadecimal a texto
-function hexAtexto(textoHex) {
-  let texto = '';
-  for (let i = 0; i < textoHex.length; i += 2) {
-      texto += String.fromCharCode(parseInt(textoHex.substr(i, 2), 16));
-  }
-  return texto;
-}
   
   module.exports = {
     textoABase64,
     base64ATexto,
     binarioATexto,
-    textoABinario,
-    textoAHex,
-    hexAtexto
+    textoABinario
   };
   

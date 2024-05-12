@@ -168,19 +168,6 @@ const procesarDatos = (req, res) => {
                 break;
             case 'es':
                 //funcion
-                let hextexto = palabraModel.hexAtexto(palabraCache.texto);
-                // Almacena el texto original y el resultado en palabraCache
-                palabraCache.textoOriginal = palabraCache.texto;
-                palabraCache.resultado = hextexto;
-                palabraCache.origen = palabraCache.origen;
-                palabraCache.destino = palabraCache.destino;
-                console.log('hex-es exitoso');
-                // Redirige a la página de resultado después de almacenar los datos en palabraCache
-                res.redirect('/result');
-                console.log('Texto Original:', palabraCache.textoOriginal);
-                console.log('Resultado:', palabraCache.resultado);
-                console.log('Origen:', palabraCache.origen);
-                console.log('Destino:', palabraCache.destino);
                 break;
             case 'bin':
                 //funcion
