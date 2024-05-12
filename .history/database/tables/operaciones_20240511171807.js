@@ -14,11 +14,10 @@ async function convertir(usuario, palabra_original, idioma_original, idioma_dest
     }
 }
 
-// Funcion para obtener el historial de las conversiones que realizo el usuario
-async function obtenerHistorial(id_usuario){
+async function obtenerHistorial(usuario){
     const conexion = await obtenerConexion();
     try {
-        const [results] = await conexion.query('SELECT * FROM Operaciones WHERE id_usuario = ?', [id_usuario]);
+        const [results] = await conexion.query('SELECT * FROM Operaciones WHERE nombre = ?', [nombre]);
         return results;
     } catch (error) {
         console.error('error al obetener el historial', error);

@@ -276,48 +276,4 @@ function textoABase64(texto) {
   let textoEnBase641 = "SG9sYSBtdW5kbw==";
   let textoOriginal = base64ATexto(textoEnBase641);
   console.log("Texto original:", textoOriginal);
-
-  
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-
-// español a binario
-
-
-function textoABinario(texto2) {
-    // Convierte el texto a binario
-    let binario = '';
-    for (let i = 0; i < texto2.length; i++) {
-      // Obtiene el código ASCII de cada caracter del texto
-      let codigo = texto2.charCodeAt(i);
-      // Convierte el código ASCII a binario y lo concatena a la cadena binaria
-      binario += codigo.toString(2).padStart(8, '0');
-    }
-    return binario;
-  }
-  
-  // Ejemplo de uso
-  let texto2 = "Hola mundo";
-  let textoEnBinario = textoABinario(texto2);
-  console.log("Texto en binario:", textoEnBinario);
-
-  /////////////////////////////////////////////////////////////////////////////////////////////////////
-
-  // binario a español
-
-  function binarioATexto(binario) {
-    let texto = '';
-    // Divide la cadena binaria en bloques de 8 bits
-    for (let i = 0; i < binario.length; i += 8) {
-      let byte = binario.slice(i, i + 8); // Obtiene un byte de 8 bits
-      let caracter = String.fromCharCode(parseInt(byte, 2)); // Convierte el byte binario a un caracter
-      texto += caracter;
-    }
-    return texto;
-  }
-  
-  // Ejemplo de uso
-  let binario = "01001000 01101111 01101100 01100001 00100000 01101101 01110101 01101110 01100100 01101111";
-  let textoOriginal1 = binarioATexto(binario.replace(/\s+/g, '')); // Elimina los espacios en blanco
-  console.log("Texto original:", textoOriginal1);
-  
   
