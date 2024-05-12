@@ -13,13 +13,6 @@ switch(origen) {
             case 'b64':
                 //funcion
                 let textoBase64 = textoABase64(texto);
-                // Almacena el texto original y el resultado en palabraCache
-                palabraCache.textoOriginal = texto;
-                palabraCache.resultado = textoBase64;
-                palabraCache.origen = origen;
-                palabraCache.destino = destino;
-                // Redirige a la página de resultado
-                res.redirect('/resultado');
                 break;
             case 'hex':
                 //funcion
