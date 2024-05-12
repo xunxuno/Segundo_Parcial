@@ -32,11 +32,7 @@ const procesarDatos = (req, res) => {
                 palabraCache.destino = palabraCache.destino;
                 console.log('b64 exitoso');
                 // Redirige a la página de resultado después de almacenar los datos en palabraCache
-                res.redirect('/result');
-                console.log('Texto Original:', palabraCache.textoOriginal);
-                console.log('Resultado:', palabraCache.resultado);
-                console.log('Origen:', palabraCache.origen);
-                console.log('Destino:', palabraCache.destino);
+                res.redirect('/');
                 break;
 
             case 'hex':

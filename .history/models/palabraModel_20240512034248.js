@@ -1,6 +1,5 @@
 const palabraDB = require('../database/tables/operaciones');
 
-
 class Palabra {
     constructor (id, id_usuario, palabra_original, idioma_original, idioma_destino, nueva_palabra, fecha_operacion) {
         this.id = id;

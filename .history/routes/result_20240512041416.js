@@ -5,13 +5,6 @@ const palabraController = require('../controllers/palabraController');
 
 let palabraCache = {}; // Inicialización básica de palabraCache
 
-// Define la ruta GET para /resultado
-router.get('/', (req, res) => {
-  // Renderiza la vista 'result' y pasa los datos necesarios
-  res.render('result', { title: 'Result', palabraCache: palabraCache }); // Asegúrate de que palabraCache esté definida y tenga los datos necesarios
-});
-
-
 // Definir la ruta POST para /result y usar la función procesarDatos del controlador de palabras
 router.post('/', (req, res, next) => {
   // Llama a la función procesarDatos del controlador y pasa req y res como argumentos
@@ -20,6 +13,12 @@ router.post('/', (req, res, next) => {
     res.redirect('/result');
 
   });
+});
+
+// Define la ruta GET para /resultado
+router.get('/result', (req, res) => {
+  // Renderiza la vista 'result' y pasa los datos necesarios
+  res.render('result', { title: 'Result', palabraCache: palabraCache }); // Asegúrate de que palabraCache esté definida y tenga los datos necesarios
 });
 
 
