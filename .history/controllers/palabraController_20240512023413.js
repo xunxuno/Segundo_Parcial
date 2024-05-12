@@ -1,10 +1,9 @@
-const palabraModel = require('../models/palabraModel');
+const palabraController = require('../models/palabraModel');
 
 const palabraCache = {};
 
 // Manejar la solicitud POST y dirigirla al controlador
 const procesarDatos = (req, res) => {
-    console.log('Inicio de procesarDatos');
     // Capturar los datos del formulario y almacenarlos en palabraCache
     palabraCache.texto = req.body.texto;
     palabraCache.origen = req.body.origen;
@@ -24,14 +23,14 @@ const procesarDatos = (req, res) => {
                 break;
             case 'b64':
                 //funcion
-                let textoBase64 =  palabraModel.textoABase64(palabraCache.texto);
+                let textoBase64 = textoABase64(palabraCache.texto);
                 // Almacena el texto original y el resultado en palabraCache
                 palabraCache.textoOriginal = palabraCache.texto;
                 palabraCache.resultado = textoBase64;
                 palabraCache.origen = palabraCache.origen;
                 palabraCache.destino = palabraCache.destino;
                 // Redirige a la página de resultado
-                res.redirect('/result');
+                res.redirect('/resultado');
                 console.log('b64 exitoso');
                 break;
             case 'hex':

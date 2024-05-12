@@ -20,6 +20,12 @@ router.use('/login', login);
 router.use('/registro', registro);
 router.use('/registrar_usuario', registrarUsuario);
 
+// Ruta para manejar la solicitud POST y dirigirla al controlador
+router.post('/result', (req, res) => {
+    const origen = req.body.origen;
+    const destino = req.body.destino;
+});
+
 
 
 module.exports = router;

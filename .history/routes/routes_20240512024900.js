@@ -22,4 +22,6 @@ router.use('/registrar_usuario', registrarUsuario);
 
 
 
+
+
 module.exports = router;

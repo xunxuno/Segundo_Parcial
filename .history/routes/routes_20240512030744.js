@@ -20,6 +20,14 @@ router.use('/login', login);
 router.use('/registro', registro);
 router.use('/registrar_usuario', registrarUsuario);
 
+// Definir tu ruta POST
+router.post('/result', (req, res) => {
+    const origen = req.body.origen;
+    console.log('Solicitud POST recibida en /result');
+  });
+
+
+
 
 
 module.exports = router;

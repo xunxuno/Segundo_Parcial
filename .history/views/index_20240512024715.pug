@@ -8,7 +8,7 @@ block content
             p Entregale al Omnissiah tu fé y se recompensado con conocimiento.
             p !Que el Dios Maquina te guie al encriptar tu mensaje¡
         .text-content
-            form(action="/result", method="post", onsubmit="return capturarDatos(event)")
+            form(action="../controllers/palabraController", method="post", onsubmit="return capturarDatos(event)")
                 .titulo-text
                     label(for="texto", class="tituloT") Texto a Encriptar:
                     input(type="text", id="texto", name="texto", required)

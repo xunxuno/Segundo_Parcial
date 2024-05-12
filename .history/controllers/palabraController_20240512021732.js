@@ -1,15 +1,6 @@
-const palabraModel = require('../models/palabraModel');
+const palabraController = require('../models/palabraModel');
 
 const palabraCache = {};
-
-// Manejar la solicitud POST y dirigirla al controlador
-const procesarDatos = (req, res) => {
-    console.log('Inicio de procesarDatos');
-    // Capturar los datos del formulario y almacenarlos en palabraCache
-    palabraCache.texto = req.body.texto;
-    palabraCache.origen = req.body.origen;
-    palabraCache.destino = req.body.destino;
-    console.log('datos recibidos');
 
 
  // Llamar a la función correspondiente según las selecciones del usuario
@@ -24,15 +15,14 @@ const procesarDatos = (req, res) => {
                 break;
             case 'b64':
                 //funcion
-                let textoBase64 =  palabraModel.textoABase64(palabraCache.texto);
+                let textoBase64 = textoABase64(palabraCache.texto);
                 // Almacena el texto original y el resultado en palabraCache
                 palabraCache.textoOriginal = palabraCache.texto;
                 palabraCache.resultado = textoBase64;
                 palabraCache.origen = palabraCache.origen;
                 palabraCache.destino = palabraCache.destino;
                 // Redirige a la página de resultado
-                res.redirect('/result');
-                console.log('b64 exitoso');
+                res.redirect('/resultado');
                 break;
             case 'hex':
                 //funcion
@@ -41,7 +31,7 @@ const procesarDatos = (req, res) => {
                 //funcion
                 break;
             default:
-                console.log('error 1');
+                console.log('error');
                 break;
         }
         break;
@@ -63,7 +53,7 @@ const procesarDatos = (req, res) => {
                 //funcion
                 break;
             default:
-                console.log('error 2');
+                console.log('error');
                 break;
         }
         break;
@@ -85,7 +75,7 @@ const procesarDatos = (req, res) => {
                 //funcion
                 break;
             default:
-                console.log('error 3');
+                console.log('error');
                 break;
         }
         break;
@@ -107,7 +97,7 @@ const procesarDatos = (req, res) => {
                 //funcion
                 break;
             default:
-                console.log('error 4');
+                console.log('error');
                 break;
         }
         break;
@@ -129,7 +119,7 @@ const procesarDatos = (req, res) => {
                 //funcion
                 break;
             default:
-                console.log('error 5');
+                console.log('error');
                 break;
         }
         break;
@@ -151,13 +141,12 @@ const procesarDatos = (req, res) => {
                 //funcion
                 break;
             default:
-                console.log('error 6');
+                console.log('error');
                 break;
         }
         break;
     default:
-        console.log('error 7');
+        console.log('error');
         break;
 }
-};
-module.exports = { procesarDatos };
+

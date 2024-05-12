@@ -4,7 +4,7 @@ const passport = require('passport');
 const authMiddleware = require('../middlewares/authMiddleware'); // Middleware para proteger rutas
 
 router.get('/', (req, res) => {
-    res.render('login', { title: 'Iniciar sesion', user: req.user != null ? `${req.user.nombre}` : ''  });
+    res.render('/', { title: 'Iniciar sesion', user: req.user != null ? `${req.user.nombre}` : ''  });
 });
   
 router.post('/', passport.authenticate('local', {
@@ -16,7 +16,7 @@ router.post('/', passport.authenticate('local', {
 
   res.cookie('token', token, { httpOnly: true, secure: false });
 
-  res.redirect('/');
+  res.redirect('/result');
 });
 
   module.exports = router;

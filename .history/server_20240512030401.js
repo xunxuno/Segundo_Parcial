@@ -121,6 +121,12 @@ app.get('/logout', async (req, res) => {
   });
 });
 
+// Definir tu ruta POST
+app.post('/result', (req, res) => {
+  const origen = req.body.origen;
+  console.log('Solicitud POST recibida en /result');
+  // Resto del código...
+});
 
 
 // Puerto en el que escucha el servidor

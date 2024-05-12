@@ -4,7 +4,6 @@ const palabraCache = {};
 
 // Manejar la solicitud POST y dirigirla al controlador
 const procesarDatos = (req, res) => {
-    console.log('Inicio de procesarDatos');
     // Capturar los datos del formulario y almacenarlos en palabraCache
     palabraCache.texto = req.body.texto;
     palabraCache.origen = req.body.origen;
