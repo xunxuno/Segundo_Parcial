@@ -520,20 +520,6 @@ const procesarDatos = (req, res) => {
                 break;
             case 'hex':
                 //funcion
-                let conversorhexafm = palabraModel.binarioATexto(palabraCache.texto);
-                textoHex = palabraModel.textoAHex(conversorhexafm);
-                // Almacena el texto original y el resultado en palabraCache
-                palabraCache.textoOriginal = palabraCache.texto;
-                palabraCache.resultado = textoHex;
-                palabraCache.origen = palabraCache.origen;
-                palabraCache.destino = palabraCache.destino;
-                console.log('bin-hex exitoso');
-                // Redirige a la página de resultado después de almacenar los datos en palabraCache
-                res.redirect('/result');
-                console.log('Texto Original:', palabraCache.textoOriginal);
-                console.log('Resultado:', palabraCache.resultado);
-                console.log('Origen:', palabraCache.origen);
-                console.log('Destino:', palabraCache.destino);
                 break;
             case 'es':
                 //funcion

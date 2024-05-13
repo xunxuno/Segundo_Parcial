@@ -287,37 +287,9 @@ const procesarDatos = (req, res) => {
         switch (palabraCache.destino) {
             case 'coc':
                 //funcion
-                let conversoerbase64 = palabraModel.base64ATexto(palabraCache.texto);
-                cifradoaCesar = palabraModel.cifradoCesar(conversoerbase64, 4);
-                // Almacena el texto original y el resultado en palabraCache
-                palabraCache.textoOriginal = palabraCache.texto;
-                palabraCache.resultado = cifradoaCesar;
-                palabraCache.origen = palabraCache.origen;
-                palabraCache.destino = palabraCache.destino;
-                console.log('b54-coc exitoso');
-                // Redirige a la página de resultado después de almacenar los datos en palabraCache
-                res.redirect('/result');
-                console.log('Texto Original:', palabraCache.textoOriginal);
-                console.log('Resultado:', palabraCache.resultado);
-                console.log('Origen:', palabraCache.origen);
-                console.log('Destino:', palabraCache.destino);
                 break;
             case 'sus':
                 //funcion
-                let convertidorsus = palabraModel.base64ATexto(palabraCache.texto);
-                cifradoaSustitucion = palabraModel.cifradoSustitucion(convertidorsus);
-                // Almacena el texto original y el resultado en palabraCache
-                palabraCache.textoOriginal = palabraCache.texto;
-                palabraCache.resultado = cifradoaSustitucion;
-                palabraCache.origen = palabraCache.origen;
-                palabraCache.destino = palabraCache.destino;
-                console.log('b64-sus exitoso');
-                // Redirige a la página de resultado después de almacenar los datos en palabraCache
-                res.redirect('/result');
-                console.log('Texto Original:', palabraCache.textoOriginal);
-                console.log('Resultado:', palabraCache.resultado);
-                console.log('Origen:', palabraCache.origen);
-                console.log('Destino:', palabraCache.destino);
                 break;
             case 'es':
                 //funcion
@@ -337,37 +309,9 @@ const procesarDatos = (req, res) => {
                 break;
             case 'hex':
                 //funcion
-                let conversorhexad = palabraModel.base64ATexto(palabraCache.texto);
-                textoHex = palabraModel.textoAHex(conversorhexad);
-                // Almacena el texto original y el resultado en palabraCache
-                palabraCache.textoOriginal = palabraCache.texto;
-                palabraCache.resultado = textoHex;
-                palabraCache.origen = palabraCache.origen;
-                palabraCache.destino = palabraCache.destino;
-                console.log('b64-hex exitoso');
-                // Redirige a la página de resultado después de almacenar los datos en palabraCache
-                res.redirect('/result');
-                console.log('Texto Original:', palabraCache.textoOriginal);
-                console.log('Resultado:', palabraCache.resultado);
-                console.log('Origen:', palabraCache.origen);
-                console.log('Destino:', palabraCache.destino);
                 break;
             case 'bin':
                 //funcion
-                let conversorbina = palabraModel.base64ATexto(palabraCache.texto);
-                textoBinario =palabraModel.textoABinario(conversorbina);
-                // Almacena el texto original y el resultado en palabraCache
-                palabraCache.textoOriginal = palabraCache.texto;
-                palabraCache.resultado = textoBinario;
-                palabraCache.origen = palabraCache.origen;
-                palabraCache.destino = palabraCache.destino;
-                console.log('b54-bin exitoso');
-                // Redirige a la página de resultado después de almacenar los datos en palabraCache
-                res.redirect('/result');
-                console.log('Texto Original:', palabraCache.textoOriginal);
-                console.log('Resultado:', palabraCache.resultado);
-                console.log('Origen:', palabraCache.origen);
-                console.log('Destino:', palabraCache.destino);
                 break;
             default:
                 console.log('error 4');
@@ -378,54 +322,12 @@ const procesarDatos = (req, res) => {
         switch (palabraCache.destino) {
             case 'coc':
                 //funcion
-                let conversorhe = palabraModel.hexAtexto(palabraCache.texto);
-                cifradoaCesar = palabraModel.cifradoCesar(conversorhe, 4);
-                // Almacena el texto original y el resultado en palabraCache
-                palabraCache.textoOriginal = palabraCache.texto;
-                palabraCache.resultado = cifradoaCesar;
-                palabraCache.origen = palabraCache.origen;
-                palabraCache.destino = palabraCache.destino;
-                console.log('hex-coc exitoso');
-                // Redirige a la página de resultado después de almacenar los datos en palabraCache
-                res.redirect('/result');
-                console.log('Texto Original:', palabraCache.textoOriginal);
-                console.log('Resultado:', palabraCache.resultado);
-                console.log('Origen:', palabraCache.origen);
-                console.log('Destino:', palabraCache.destino);
                 break;
             case 'sus':
                 //funcion
-                let conversorsuss = palabraModel.hexAtexto(palabraCache.texto);
-                cifradoaSustitucion = palabraModel.cifradoSustitucion(conversorsuss);
-                // Almacena el texto original y el resultado en palabraCache
-                palabraCache.textoOriginal = palabraCache.texto;
-                palabraCache.resultado = cifradoaSustitucion;
-                palabraCache.origen = palabraCache.origen;
-                palabraCache.destino = palabraCache.destino;
-                console.log('hex-sus exitoso');
-                // Redirige a la página de resultado después de almacenar los datos en palabraCache
-                res.redirect('/result');
-                console.log('Texto Original:', palabraCache.textoOriginal);
-                console.log('Resultado:', palabraCache.resultado);
-                console.log('Origen:', palabraCache.origen);
-                console.log('Destino:', palabraCache.destino);
                 break;
             case 'b64':
                 //funcion
-                let conversorbb64 = palabraModel.hexAtexto(palabraCache.texto);
-                textoBase64 = palabraModel.textoABase64(conversorbb64);
-                // Almacena el texto original y el resultado en palabraCache
-                palabraCache.textoOriginal = palabraCache.texto;
-                palabraCache.resultado = textoBase64;
-                palabraCache.origen = palabraCache.origen;
-                palabraCache.destino = palabraCache.destino;
-                console.log('hex-b64 exitoso');
-                // Redirige a la página de resultado después de almacenar los datos en palabraCache
-                res.redirect('/result');
-                console.log('Texto Original:', palabraCache.textoOriginal);
-                console.log('Resultado:', palabraCache.resultado);
-                console.log('Origen:', palabraCache.origen);
-                console.log('Destino:', palabraCache.destino);
                 break;
             case 'es':
                 //funcion
@@ -445,20 +347,6 @@ const procesarDatos = (req, res) => {
                 break;
             case 'bin':
                 //funcion
-                let conversorbinbin = palabraModel.hexAtexto(palabraCache.texto);
-                textoBinario =palabraModel.textoABinario(conversorbinbin);
-                // Almacena el texto original y el resultado en palabraCache
-                palabraCache.textoOriginal = palabraCache.texto;
-                palabraCache.resultado = textoBinario;
-                palabraCache.origen = palabraCache.origen;
-                palabraCache.destino = palabraCache.destino;
-                console.log('hex-bin exitoso');
-                // Redirige a la página de resultado después de almacenar los datos en palabraCache
-                res.redirect('/result');
-                console.log('Texto Original:', palabraCache.textoOriginal);
-                console.log('Resultado:', palabraCache.resultado);
-                console.log('Origen:', palabraCache.origen);
-                console.log('Destino:', palabraCache.destino);
                 break;
             default:
                 console.log('error 5');
@@ -469,71 +357,15 @@ const procesarDatos = (req, res) => {
         switch (palabraCache.destino) {
             case 'coc':
                 //funcion
-                let conversorcococc = palabraModel.binarioATexto(palabraCache.texto);
-                cifradoaCesar = palabraModel.cifradoCesar(conversorcococc, 4);
-                // Almacena el texto original y el resultado en palabraCache
-                palabraCache.textoOriginal = palabraCache.texto;
-                palabraCache.resultado = cifradoaCesar;
-                palabraCache.origen = palabraCache.origen;
-                palabraCache.destino = palabraCache.destino;
-                console.log('bin-coc exitoso');
-                // Redirige a la página de resultado después de almacenar los datos en palabraCache
-                res.redirect('/result');
-                console.log('Texto Original:', palabraCache.textoOriginal);
-                console.log('Resultado:', palabraCache.resultado);
-                console.log('Origen:', palabraCache.origen);
-                console.log('Destino:', palabraCache.destino);
                 break;
             case 'sus':
                 //funcion
-                let conversorsusu = palabraModel.binarioATexto(palabraCache.texto);
-                cifradoaSustitucion = palabraModel.cifradoSustitucion(conversorsusu);
-                // Almacena el texto original y el resultado en palabraCache
-                palabraCache.textoOriginal = palabraCache.texto;
-                palabraCache.resultado = cifradoaSustitucion;
-                palabraCache.origen = palabraCache.origen;
-                palabraCache.destino = palabraCache.destino;
-                console.log('bin-sus exitoso');
-                // Redirige a la página de resultado después de almacenar los datos en palabraCache
-                res.redirect('/result');
-                console.log('Texto Original:', palabraCache.textoOriginal);
-                console.log('Resultado:', palabraCache.resultado);
-                console.log('Origen:', palabraCache.origen);
-                console.log('Destino:', palabraCache.destino);
                 break;
             case 'b64':
                 //funcion
-                let conversor6469 = palabraModel.binarioATexto(palabraCache.texto);
-                textoBase64 = palabraModel.textoABase64(conversor6469);
-                // Almacena el texto original y el resultado en palabraCache
-                palabraCache.textoOriginal = palabraCache.texto;
-                palabraCache.resultado = textoBase64;
-                palabraCache.origen = palabraCache.origen;
-                palabraCache.destino = palabraCache.destino;
-                console.log('bin-b64 exitoso');
-                // Redirige a la página de resultado después de almacenar los datos en palabraCache
-                res.redirect('/result');
-                console.log('Texto Original:', palabraCache.textoOriginal);
-                console.log('Resultado:', palabraCache.resultado);
-                console.log('Origen:', palabraCache.origen);
-                console.log('Destino:', palabraCache.destino);
                 break;
             case 'hex':
                 //funcion
-                let conversorhexafm = palabraModel.binarioATexto(palabraCache.texto);
-                textoHex = palabraModel.textoAHex(conversorhexafm);
-                // Almacena el texto original y el resultado en palabraCache
-                palabraCache.textoOriginal = palabraCache.texto;
-                palabraCache.resultado = textoHex;
-                palabraCache.origen = palabraCache.origen;
-                palabraCache.destino = palabraCache.destino;
-                console.log('bin-hex exitoso');
-                // Redirige a la página de resultado después de almacenar los datos en palabraCache
-                res.redirect('/result');
-                console.log('Texto Original:', palabraCache.textoOriginal);
-                console.log('Resultado:', palabraCache.resultado);
-                console.log('Origen:', palabraCache.origen);
-                console.log('Destino:', palabraCache.destino);
                 break;
             case 'es':
                 //funcion
