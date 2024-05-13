@@ -146,7 +146,7 @@ const procesarDatos = (req, res) => {
                 palabraCache.resultado = textoBase64;
                 palabraCache.origen = palabraCache.origen;
                 palabraCache.destino = palabraCache.destino;
-                console.log('coc-b64 exitoso');
+                console.log('coc-sus exitoso');
                 // Redirige a la página de resultado después de almacenar los datos en palabraCache
                 res.redirect('/result');
                 console.log('Texto Original:', palabraCache.textoOriginal);
@@ -162,7 +162,7 @@ const procesarDatos = (req, res) => {
                 palabraCache.resultado = textoHex;
                 palabraCache.origen = palabraCache.origen;
                 palabraCache.destino = palabraCache.destino;
-                console.log('coc-hex exitoso');
+                console.log('coc-sus exitoso');
                 // Redirige a la página de resultado después de almacenar los datos en palabraCache
                 res.redirect('/result');
                 console.log('Texto Original:', palabraCache.textoOriginal);
@@ -172,19 +172,6 @@ const procesarDatos = (req, res) => {
                 break;
             case 'bin':
                 //funcion
-                let conversorBIN = palabraModel.descifradoCesar(palabraCache.texto, 4);
-                textoBinario =palabraModel.textoABinario(conversorBIN);
-                palabraCache.textoOriginal = palabraCache.texto;
-                palabraCache.resultado = textoBinario;
-                palabraCache.origen = palabraCache.origen;
-                palabraCache.destino = palabraCache.destino;
-                console.log('coc-bin exitoso');
-                // Redirige a la página de resultado después de almacenar los datos en palabraCache
-                res.redirect('/result');
-                console.log('Texto Original:', palabraCache.textoOriginal);
-                console.log('Resultado:', palabraCache.resultado);
-                console.log('Origen:', palabraCache.origen);
-                console.log('Destino:', palabraCache.destino);
                 break;
             default:
                 console.log('error 2');
