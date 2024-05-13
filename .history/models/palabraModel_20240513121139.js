@@ -173,7 +173,7 @@ function descifradoCesar(textoEncriptado, desplazamiento1) {
 
   // CIFRADO a ESP
 
-  function descifradoSustitucion(textoEncriptado) {
+  function cifradoSustitucion(textoEncriptado) {
     let textoOriginal = '';
     let mapaSustitucion2 = {
       '@': 'a',

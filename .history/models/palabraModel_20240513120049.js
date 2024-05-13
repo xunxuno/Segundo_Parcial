@@ -105,9 +105,10 @@ function descifradoCesar(textoEncriptado, desplazamiento1) {
 
   // de ESP a SUSTITUCION
 
-  function cifradoSustitucion(textoOriginal) {
-    let textoEncriptado = '';
-    let mapaSustitucion2 = {
+  function cifradoSustitucion(palabra1) {
+    let palabraEncriptada1 = '';
+
+    let mapaSustitucion = {
       'a': '@',
       'b': '#',
       'c': '$',
@@ -136,30 +137,29 @@ function descifradoCesar(textoEncriptado, desplazamiento1) {
       'z': '|'
     };
   
-    for (let i = 0; i < textoOriginal.length; i++) {
-      let caracter = textoOriginal[i].toLowerCase(); // Convertimos a minúsculas para manejar mayúsculas y minúsculas
+    for (let i = 0; i < palabra1.length; i++) {
+      let caracter = palabra1[i].toLowerCase(); // Convertimos a minúsculas para manejar mayúsculas y minúsculas
   
       // Verifica si el caracter es una letra del alfabeto
       if (caracter.match(/[a-z]/)) {
         // Busca el caracter en el mapa de sustitución
-        let caracterEncriptado = mapaSustitucion2[caracter];
-        
+        let caracterEncriptado = mapaSustitucion[caracter];
+  
         if (caracterEncriptado !== undefined) {
-          // Si encuentra el caracter en el mapa de sustitución, lo agrega al texto encriptado
-          textoEncriptado += (textoOriginal[i] === textoOriginal[i].toUpperCase()) ? caracterEncriptado.toUpperCase() : caracterEncriptado;
+          // Si el caracter tiene una sustitución definida, lo agrega a la palabra encriptada
+          palabraEncriptada1 += (palabra1[i] === palabra1[i].toUpperCase()) ? caracterEncriptado.toUpperCase() : caracterEncriptado;
         } else {
-          // Si no encuentra el caracter en el mapa de sustitución, mantiene el caracter original
-          textoEncriptado += textoOriginal[i];
+          // Si no hay sustitución definida, mantiene el caracter original
+          palabraEncriptada1 += palabra1[i];
         }
       } else {
         // Si no es una letra del alfabeto, mantiene el caracter original
-        textoEncriptado += textoOriginal[i];
+        palabraEncriptada1 += palabra1[i];
       }
     }
   
-    return textoEncriptado;
+    return palabraEncriptada1;
   }
-  
   
   
   
@@ -173,57 +173,62 @@ function descifradoCesar(textoEncriptado, desplazamiento1) {
 
   // CIFRADO a ESP
 
-  function descifradoSustitucion(textoEncriptado) {
-    let textoOriginal = '';
-    let mapaSustitucion2 = {
-      '@': 'a',
-      '#': 'b',
-      '$': 'c',
-      '%': 'd',
-      '&': 'e',
-      '/': 'f',
-      '=': 'g',
-      '!': 'h',
-      '?': 'i',
-      '(': 'j',
-      ')': 'k',
-      '*': 'l',
-      '+': 'm',
-      '-': 'n',
-      '_': 'o',
-      '}': 'p',
-      '{': 'q',
-      '[': 'r',
-      ']': 's',
-      '>': 't',
-      '<': 'u',
-      '.': 'v',
-      ',': 'w',
-      ';': 'x',
-      ':': 'y',
-      '|': 'z'
-    };
-  
-    for (let i = 0; i < textoEncriptado.length; i++) {
-      let caracter = textoEncriptado[i].toLowerCase(); // Convertimos a minúsculas para manejar mayúsculas y minúsculas
-  
+  function descifradoSustitucion(palabraEncriptada2) {
+  let palabraDescifrada2 = '';
+  let mapaSustitucion2 = {
+    '@': 'a',
+    '#': 'b',
+    '$': 'c',
+    '%': 'd',
+    '&': 'e',
+    '/': 'f',
+    '=': 'g',
+    '!': 'h',
+    '?': 'i',
+    '(': 'j',
+    ')': 'k',
+    '*': 'l',
+    '+': 'm',
+    '-': 'n',
+    '_': 'o',
+    '}': 'p',
+    '{': 'q',
+    '[': 'r',
+    ']': 's',
+    '>': 't',
+    '<': 'u',
+    '.': 'v',
+    ',': 'w',
+    ';': 'x',
+    ':': 'y',
+    '|': 'z'
+  };
+
+  for (let i = 0; i < palabraEncriptada2.length; i++) {
+    let caracter = palabraEncriptada2[i].toLowerCase(); // Convertimos a minúsculas para manejar mayúsculas y minúsculas
+
+    // Verifica si el caracter es una letra del alfabeto
+    if (caracter.match(/[a-z]/)) {
       // Busca el caracter en el mapa de sustitución
-      let caracterOriginal = mapaSustitucion2[caracter];
-      
+      let caracterOriginal = Object.keys(mapaSustitucion2).find(key => mapaSustitucion2[key] === caracter);
+
+      console.log(`Caracter encriptado: ${palabraEncriptada2[i]}, Caracter original: ${caracterOriginal}`);
+
       if (caracterOriginal !== undefined) {
-        // Si encuentra el caracter en el mapa de sustitución, lo agrega al texto original
-        textoOriginal += (textoEncriptado[i] === textoEncriptado[i].toUpperCase()) ? caracterOriginal.toUpperCase() : caracterOriginal;
+        // Si encuentra el caracter en el mapa de sustitución, lo agrega a la palabra descifrada
+        palabraDescifrada2 += (palabraEncriptada2[i] === palabraEncriptada2[i].toUpperCase()) ? caracterOriginal.toUpperCase() : caracterOriginal;
       } else {
         // Si no encuentra el caracter en el mapa de sustitución, mantiene el caracter encriptado original
-        textoOriginal += textoEncriptado[i];
+        palabraDescifrada2 += palabraEncriptada2[i];
       }
+    } else {
+      // Si no es una letra del alfabeto, mantiene el caracter original
+      palabraDescifrada2 += palabraEncriptada2[i];
     }
-  
-    return textoOriginal;
   }
-  
-  
-  
+
+  return palabraDescifrada2;
+}
 
   
 

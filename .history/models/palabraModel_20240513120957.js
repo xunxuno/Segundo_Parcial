@@ -173,8 +173,8 @@ function descifradoCesar(textoEncriptado, desplazamiento1) {
 
   // CIFRADO a ESP
 
-  function descifradoSustitucion(textoEncriptado) {
-    let textoOriginal = '';
+  function cifradoSustitucion(textoOriginal) {
+    let textoEncriptado = '';
     let mapaSustitucion2 = {
       '@': 'a',
       '#': 'b',
@@ -204,24 +204,35 @@ function descifradoCesar(textoEncriptado, desplazamiento1) {
       '|': 'z'
     };
   
-    for (let i = 0; i < textoEncriptado.length; i++) {
-      let caracter = textoEncriptado[i].toLowerCase(); // Convertimos a minúsculas para manejar mayúsculas y minúsculas
+    // Crear un nuevo objeto con las claves y valores invertidos
+    let mapaInvertido = {};
+    Object.keys(mapaSustitucion2).forEach(key => {
+      mapaInvertido[mapaSustitucion2[key]] = key;
+    });
   
-      // Busca el caracter en el mapa de sustitución
-      let caracterOriginal = mapaSustitucion2[caracter];
-      
-      if (caracterOriginal !== undefined) {
-        // Si encuentra el caracter en el mapa de sustitución, lo agrega al texto original
-        textoOriginal += (textoEncriptado[i] === textoEncriptado[i].toUpperCase()) ? caracterOriginal.toUpperCase() : caracterOriginal;
+    for (let i = 0; i < textoOriginal.length; i++) {
+      let caracter = textoOriginal[i].toLowerCase(); // Convertimos a minúsculas para manejar mayúsculas y minúsculas
+  
+      // Verifica si el caracter es una letra del alfabeto
+      if (caracter.match(/[a-z]/)) {
+        // Busca el caracter en el mapa invertido de sustitución
+        let caracterEncriptado = mapaInvertido[caracter];
+        
+        if (caracterEncriptado !== undefined) {
+          // Si encuentra el caracter en el mapa invertido de sustitución, lo agrega al texto encriptado
+          textoEncriptado += (textoOriginal[i] === textoOriginal[i].toUpperCase()) ? caracterEncriptado.toUpperCase() : caracterEncriptado;
+        } else {
+          // Si no encuentra el caracter en el mapa invertido de sustitución, mantiene el caracter original
+          textoEncriptado += textoOriginal[i];
+        }
       } else {
-        // Si no encuentra el caracter en el mapa de sustitución, mantiene el caracter encriptado original
-        textoOriginal += textoEncriptado[i];
+        // Si no es una letra del alfabeto, mantiene el caracter original
+        textoEncriptado += textoOriginal[i];
       }
     }
   
-    return textoOriginal;
+    return textoEncriptado;
   }
-  
   
   
 
