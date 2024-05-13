@@ -122,8 +122,8 @@ const procesarDatos = (req, res) => {
                 break;
             case 'sus':
                 //funcion
-                let conversorCesar = palabraModel.descifradoCesar(palabraCache.texto, 4);
-                cifradoaSustitucion = palabraModel.cifradoSustitucion(conversorCesar);
+                descifradoaCesar =palabraModel.descifradoCesar(palabraCache.texto, 4);
+                cifradoaSustitucion = palabraModel.cifradoSustitucion(descifradoaCesar);
                 // Almacena el texto original y el resultado en palabraCache
                 palabraCache.textoOriginal = palabraCache.texto;
                 palabraCache.resultado = cifradoaSustitucion;
@@ -136,23 +136,12 @@ const procesarDatos = (req, res) => {
                 console.log('Resultado:', palabraCache.resultado);
                 console.log('Origen:', palabraCache.origen);
                 console.log('Destino:', palabraCache.destino);
+
+
+                
                 break;
             case 'b64':
                 //funcion
-                let conversorCOC = palabraModel.descifradoCesar(palabraCache.texto, 4);
-                textoBase64 = palabraModel.textoABase64(conversorCOC);
-                // Almacena el texto original y el resultado en palabraCache
-                palabraCache.textoOriginal = palabraCache.texto;
-                palabraCache.resultado = textoBase64;
-                palabraCache.origen = palabraCache.origen;
-                palabraCache.destino = palabraCache.destino;
-                console.log('coc-sus exitoso');
-                // Redirige a la página de resultado después de almacenar los datos en palabraCache
-                res.redirect('/result');
-                console.log('Texto Original:', palabraCache.textoOriginal);
-                console.log('Resultado:', palabraCache.resultado);
-                console.log('Origen:', palabraCache.origen);
-                console.log('Destino:', palabraCache.destino);
                 break;
             case 'hex':
                 //funcion
@@ -169,21 +158,6 @@ const procesarDatos = (req, res) => {
         switch (palabraCache.destino) {
             case 'coc':
                 //funcion
-                let conversorSUS = palabraModel.descifradoSustitucion(palabraCache.texto);
-                cifradoaCesar  = palabraModel.cifradoCesar(conversorSUS);
-                // Almacena el texto original y el resultado en palabraCache
-                palabraCache.textoOriginal = palabraCache.texto;
-                palabraCache.resultado = cifradoaCesar;
-                palabraCache.origen = palabraCache.origen;
-                palabraCache.destino = palabraCache.destino;
-                console.log('sus-coc exitoso');
-                // Redirige a la página de resultado después de almacenar los datos en palabraCache
-                res.redirect('/result');
-                console.log('Texto Original:', palabraCache.textoOriginal);
-                console.log('Resultado:', palabraCache.resultado);
-                console.log('Origen:', palabraCache.origen);
-                console.log('Destino:', palabraCache.destino);
-
                 break;
             case 'es':
                 //funcion
