@@ -30,7 +30,18 @@ CREATE TABLE IF NOT EXISTS Historial_Login (
     INDEX (id_usuario)
 );
 
+CREATE TABLE IF NOT EXISTS Acciones_Usuario(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    id_usuario INT NOT NULL,
+    id_sesion INT NOT NULL,
+    fecha_accion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    accion VARCHAR(30) NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id),
+    FOREIGN KEY (id_sesion) REFERENCES Historial_login(id),
+    INDEX (id_usuario)
+);
 
 SELECT * FROM Usuarios;    
 SELECT * FROM Operaciones;    
 SELECT * FROM Historial_Login;
+SELECT * FROM Acciones_Usuario;
