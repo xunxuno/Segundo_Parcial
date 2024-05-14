@@ -15,8 +15,9 @@ router.get('/', async(req, res) => {
     console.log('renderizado exitoso');
 
     //const usuario =  obtenerIdUsuario(); // Aquí obtén el ID del usuario
-    const id_usuario =  await obtenerIDPorNombre(req.user.nombre);
+    const id_usuario =  obtenerIDPorNombre(req.user.nombre);
     console.log(id_usuario);
+    //const usuario = 1;
     const palabra_original = palabraCache.textoOriginal;
     const idioma_original = palabraCache.origen;
     const idioma_destino = palabraCache.destino;

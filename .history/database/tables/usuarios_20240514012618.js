@@ -47,7 +47,7 @@ async function obtenerIDPorNombre(nombre) {
     const conexion = await obtenerConexion();
     try {
         const [results] = await conexion.query('SELECT id FROM Usuarios WHERE nombre = ?', [nombre]);
-        return results[0].id;
+        return results[0];
     } catch (error) {
         console.error('Error al obtener id por nombre:', error);
         throw error;

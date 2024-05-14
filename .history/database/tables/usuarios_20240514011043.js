@@ -43,16 +43,12 @@ async function obtenerPorId(id) {
 }
 
 // Función para obtener el ID del usuario
-async function obtenerIDPorNombre(nombre) {
-    const conexion = await obtenerConexion();
-    try {
-        const [results] = await conexion.query('SELECT id FROM Usuarios WHERE nombre = ?', [nombre]);
-        return results[0].id;
-    } catch (error) {
-        console.error('Error al obtener id por nombre:', error);
-        throw error;
-    } finally {
-        conexion.release(); // Liberar la conexión al finalizar
+async function obtenerIdUsuario(nombre) {
+    const usuario = await obtenerPorNombre(nombre);
+    if (usuario) {
+        return usuario.id;
+    } else {
+        throw new Error('El usuario no existe');
     }
 }
 
@@ -60,5 +56,5 @@ module.exports = {
     registrar,
     obtenerPorNombre,
     obtenerPorId,
-    obtenerIDPorNombre
+    obtenerIdUsuario
 };

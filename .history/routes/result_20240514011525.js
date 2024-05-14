@@ -3,7 +3,7 @@ const router = express.Router();
 const authMiddleware = require('../middlewares/authMiddleware');
 const { procesarDatos, palabraCache } = require('../controllers/palabraController');
 const { convertir } = require('../database/tables/operaciones');
-const {obtenerIDPorNombre} = require('../database/tables/usuarios');
+const {obtenerIdUsuario} = require('../database/tables/usuarios');
 const palabraController = require('../controllers/palabraController');
 
 // Define la ruta GET para /resultado
@@ -15,8 +15,8 @@ router.get('/', async(req, res) => {
     console.log('renderizado exitoso');
 
     //const usuario =  obtenerIdUsuario(); // Aquí obtén el ID del usuario
-    const id_usuario =  await obtenerIDPorNombre(req.user.nombre);
-    console.log(id_usuario);
+    const id_usuario = req.body.id;
+    //const usuario = 1;
     const palabra_original = palabraCache.textoOriginal;
     const idioma_original = palabraCache.origen;
     const idioma_destino = palabraCache.destino;
