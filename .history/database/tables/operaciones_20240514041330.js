@@ -19,7 +19,7 @@ async function obtenerHistorial(id_usuario){
     const conexion = await obtenerConexion();
     try {
         const [results] = await conexion.query('SELECT fecha_operacion, palabra_original, idioma_original, idioma_destino, nueva_palabra FROM Operaciones WHERE id_usuario = ? ORDER BY fecha_operacion DESC;', [id_usuario]);
-        return results; 
+        return results; // Devolver el primer objeto del array de resultados
     } catch (error) {
         console.error('Error al obtener el historial', error);
         throw error;
