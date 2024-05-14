@@ -44,10 +44,12 @@ passport.use(new LocalStrategy(
     try {
       const user = await usuarios.obtenerPorNombre(username);
       if (!user) {
+        req.session.failedAttempts = (req.session.failedAttempts || 0) + 1; // Incrementar failedAttempts si el usuario no existe
         return done(null, false, { message: 'Usuario incorrecto.' });
       }
       const passwordMatch = await authMiddleWare.comparePassword(password, user.password_hash);
       if (!passwordMatch) {
+        req.session.failedAttempts = (req.session.failedAttempts || 0) + 1; // Incrementar failedAttempts si la contraseña es incorrecta
         return done(null, false, { message: 'Contraseña incorrecta.' });
       }
       return done(null, user);
@@ -121,7 +123,9 @@ app.get('/logout', async (req, res) => {
   });
 });
 
-
+app.get('/', (req, res) => {
+  res.render('index', { failedAttempts: req.session.failedAttempts || 0 });
+});
 
 app.use(express.urlencoded({ extended: true }))
 

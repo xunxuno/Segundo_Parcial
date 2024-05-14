@@ -39,15 +39,20 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Configurar estrategia de autenticación local
+// Configurar estrategia de autenticación local
 passport.use(new LocalStrategy(
   async (username, password, done) => {
     try {
       const user = await usuarios.obtenerPorNombre(username);
       if (!user) {
+        req.session.failedAttempts = (req.session.failedAttempts || 0) + 1; // Incrementar failedAttempts si el usuario no existe
+        console.log("Intentos fallidos:", req.session.failedAttempts); // Agregar esta línea para depuración
         return done(null, false, { message: 'Usuario incorrecto.' });
       }
       const passwordMatch = await authMiddleWare.comparePassword(password, user.password_hash);
       if (!passwordMatch) {
+        req.session.failedAttempts = (req.session.failedAttempts || 0) + 1; // Incrementar failedAttempts si la contraseña es incorrecta
+        console.log("Intentos fallidos:", req.session.failedAttempts); // Agregar esta línea para depuración
         return done(null, false, { message: 'Contraseña incorrecta.' });
       }
       return done(null, user);
@@ -56,6 +61,7 @@ passport.use(new LocalStrategy(
     }
   }
 ));
+
 
 
 passport.serializeUser((user, done) => {
@@ -121,7 +127,9 @@ app.get('/logout', async (req, res) => {
   });
 });
 
-
+app.get('/', (req, res) => {
+  res.render('index', { failedAttempts: req.session.failedAttempts || 0 });
+});
 
 app.use(express.urlencoded({ extended: true }))
 

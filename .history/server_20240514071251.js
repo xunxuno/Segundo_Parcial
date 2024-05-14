@@ -121,7 +121,9 @@ app.get('/logout', async (req, res) => {
   });
 });
 
-
+app.get('/', (req, res) => {
+  res.render('index', { failedAttempts: req.session.failedAttempts || 0 });
+});
 
 app.use(express.urlencoded({ extended: true }))
 
