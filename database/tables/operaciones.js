@@ -28,3 +28,8 @@ async function obtenerHistorial(id_usuario){
     }
     
 }
+
+module.exports = {
+    convertir,
+    obtenerHistorial
+};
