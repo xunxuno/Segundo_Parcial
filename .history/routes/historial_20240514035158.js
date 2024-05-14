@@ -13,9 +13,10 @@ router.get('/', async(req, res) => {
 
     try {
       datosHistorial = await obtenerHistorial(id_usuario);
-        console.log('Datos enviados con éxito a la función historial');
-        res.render('historial', { 
-          title: req.user != null ? `ArchiMagos Dominus ${req.user.nombre}`: 'VoxScritus', user: req.user != null ? `${req.user.nombre}` : '', 
+        console.log('Datos enviados con éxito a la función convertir');
+        res.render('result', { 
+          title: 'Result', 
+          palabraCache: palabraCache,
           datosHistorial: datosHistorial // Pasar datos a la vista
       });
         // Aquí puedes hacer otras acciones después de enviar los datos

@@ -9,7 +9,11 @@ block content
             p Texto original: #{datosUltimaConversion.palabra_original}
             p Destino: #{datosUltimaConversion.idioma_destino}
             p Resultado: #{datosUltimaConversion.nueva_palabra}
-            
+            //
+            //p Texto original: #{palabraCache.textoOriginal}
+           //p Resultado: #{palabraCache.resultado}
+            p Origen: #{palabraCache.origen}
+            p Destino: #{palabraCache.destino}
 
     form(action="/" method="get")
         button(type="submit") Encriptar otro texto

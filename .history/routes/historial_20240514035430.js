@@ -15,7 +15,7 @@ router.get('/', async(req, res) => {
       datosHistorial = await obtenerHistorial(id_usuario);
         console.log('Datos enviados con éxito a la función historial');
         res.render('historial', { 
-          title: req.user != null ? `ArchiMagos Dominus ${req.user.nombre}`: 'VoxScritus', user: req.user != null ? `${req.user.nombre}` : '', 
+          title: 'Historial', 
           datosHistorial: datosHistorial // Pasar datos a la vista
       });
         // Aquí puedes hacer otras acciones después de enviar los datos

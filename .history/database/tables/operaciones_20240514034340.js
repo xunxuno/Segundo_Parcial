@@ -18,7 +18,7 @@ async function convertir(usuario, palabra_original, idioma_original, idioma_dest
 async function obtenerHistorial(id_usuario){
     const conexion = await obtenerConexion();
     try {
-        const [results] = await conexion.query('SELECT fecha_operacion, palabra_original, idioma_original, idioma_destino, nueva_palabra FROM Operaciones WHERE id_usuario = ? ORDER BY fecha_operacion DESC;', [id_usuario]);
+        const [results] = await conexion.query('SELECT * FROM Operaciones WHERE id_usuario = ?', [id_usuario]);
         if (results.length > 0) {
             return results[0]; // Devolver el primer objeto del array de resultados
         } else {
