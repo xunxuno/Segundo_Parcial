@@ -70,11 +70,9 @@ async function registrarLogin(id) {
     }
 }
 
-
 module.exports = {
     registrar,
     obtenerPorNombre,
     obtenerPorId,
-    obtenerIDPorNombre,
-    registrarLogin
+    obtenerIDPorNombre
 };
