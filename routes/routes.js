@@ -11,6 +11,8 @@ const result = require('./result');
 const login = require('./login');
 const registro = require('./registro');
 const registrarUsuario = require('./registrar_usuario');
+const historial = require('./historial');
+const cuenta = require('./cuenta');
 
 
 // Configura las rutas
@@ -19,7 +21,7 @@ router.use('/result', result);
 router.use('/login', login);
 router.use('/registro', registro);
 router.use('/registrar_usuario', registrarUsuario);
-
-
+router.use('/historial', historial);
+router.use('/cuenta', cuenta);
 
 module.exports = router;
