@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-// Variable para almacenar el número de visitas a la ruta '/noSesion'
 let visitasNoSesion = {};
 
-router.get('/', (req, res) => {
+router.get('/noSesion', (req, res) => {
     // Verificar si el usuario está autenticado
     if (!req.user || !req.user.nombre) {
         // Incrementar el contador de visitas para esta sesión
@@ -20,5 +19,3 @@ router.get('/', (req, res) => {
     // Renderizar la página '/noSesion'
     res.render('noSesion');
 });
-
-module.exports = router;
