@@ -26,6 +26,9 @@ const procesarDatos = (req, res) => {
                 palabraCache.resultado = cifradoaCesar;
                 palabraCache.origen = palabraCache.origen;
                 palabraCache.destino = palabraCache.destino;
+                await convertir(usuario, palabraCache.textoOriginal, palabraCache.origen, palabraCache.destino, palabraCache.resultado);
+                console.log('Datos enviados con éxito a la función convertir');
+
                 console.log('esp-coc exitoso');
                 // Redirige a la página de resultado después de almacenar los datos en palabraCache
                 res.redirect('/result');

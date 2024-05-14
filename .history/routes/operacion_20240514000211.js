@@ -7,7 +7,7 @@ const authMiddleWare = require('../middlewares/authMiddleware');
 
 
 router.post('/', async (req, res) => {
-    const usuario = await obtenerIdUsuario(); // Aquí obtén el ID del usuario
+    const usuario = obtenerIdUsuario(); // Aquí obtén el ID del usuario
     const palabra_original = palabraCache.textoOriginal;
     const idioma_original = palabraCache.origen;
     const idioma_destino = palabraCache.destino;

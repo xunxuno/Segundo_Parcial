@@ -29,9 +29,9 @@ router.get('/', async(req, res) => {
     } catch (error) {
         console.error('Error al enviar datos a la función convertir:', error);
         // Maneja el error de acuerdo a tus necesidades
-        res.render('error', { error: 'Error al procesar los datos' });
     }
 
+    res.render('result', { title: 'Result', palabraCache: palabraCache });
   } else {
     // Si falta algún dato en palabraCache, imprimir un mensaje en la consola y redirigir a la página principal
     console.log('Falta algún dato en palabraCache');

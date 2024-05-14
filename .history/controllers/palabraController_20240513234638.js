@@ -1,6 +1,4 @@
 const palabraModel = require('../models/palabraModel');
-const { convertir } = require('../database/tables/operaciones');
-
 
 const palabraCache = {};
 

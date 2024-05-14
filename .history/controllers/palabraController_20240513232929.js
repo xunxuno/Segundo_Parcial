@@ -1,6 +1,4 @@
 const palabraModel = require('../models/palabraModel');
-const { convertir } = require('../database/tables/operaciones');
-
 
 const palabraCache = {};
 
@@ -28,7 +26,7 @@ const procesarDatos = (req, res) => {
                 palabraCache.destino = palabraCache.destino;
                 console.log('esp-coc exitoso');
                 // Redirige a la página de resultado después de almacenar los datos en palabraCache
-                res.redirect('/result');
+                res.redirect('/operacion');
                 console.log('Texto Original:', palabraCache.textoOriginal);
                 console.log('Resultado:', palabraCache.resultado);
                 console.log('Origen:', palabraCache.origen);

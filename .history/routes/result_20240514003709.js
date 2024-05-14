@@ -24,14 +24,14 @@ router.get('/', async(req, res) => {
     try {
         await convertir(usuario, palabra_original, idioma_original, idioma_destino, nueva_palabra);
         console.log('Datos enviados con éxito a la función convertir');
-        res.render('result', { title: 'Result', palabraCache: palabraCache });
+        res.redirect('/result');
         // Aquí puedes hacer otras acciones después de enviar los datos
     } catch (error) {
         console.error('Error al enviar datos a la función convertir:', error);
         // Maneja el error de acuerdo a tus necesidades
-        res.render('error', { error: 'Error al procesar los datos' });
     }
 
+    res.render('result', { title: 'Result', palabraCache: palabraCache });
   } else {
     // Si falta algún dato en palabraCache, imprimir un mensaje en la consola y redirigir a la página principal
     console.log('Falta algún dato en palabraCache');

@@ -29,7 +29,6 @@ router.get('/', async(req, res) => {
     } catch (error) {
         console.error('Error al enviar datos a la función convertir:', error);
         // Maneja el error de acuerdo a tus necesidades
-        res.render('error', { error: 'Error al procesar los datos' });
     }
 
   } else {
