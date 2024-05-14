@@ -87,6 +87,21 @@ async function historialLogin(id_usuario) {
     }
 }
 
+async function CrearInvitado(){
+    const conexion = await obtenerConexion();
+    try {
+        const [inv] = await conexion.query(
+            'INSERT INTO Usuarios (id, nombre, email, password_hash) VALUES (?, ?, ?,?);',
+            [500,id_invitado,invi,invitados]
+        );
+        return id_invitado || []; // Asegúrate de devolver un array
+    } catch (error) {
+        console.error('Error al obtener el historial login:', error);
+        throw error;
+    } finally {
+        conexion.release(); // Liberar la conexión al finalizar
+    }
+}
 
 
 
@@ -96,5 +111,7 @@ module.exports = {
     obtenerPorId,
     obtenerIDPorNombre,
     registrarLogin,
-    historialLogin
+    historialLogin,
+    CrearInvitado,
+    BorrarInvitado
 };

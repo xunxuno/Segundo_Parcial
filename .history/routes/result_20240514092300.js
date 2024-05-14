@@ -12,7 +12,7 @@ function ensureAuthenticated(req, res, next) {
   if (req.user && req.user.name) {
     return next();
   } else {
-    res.redirect('/noSesion');
+    res.redirect('/');
   }
 }
 

@@ -87,6 +87,27 @@ async function historialLogin(id_usuario) {
     }
 }
 
+async function CrearInvitado() {
+    const conexion = await pool.getConnection();
+    try {
+      // Generar valores válidos para el nuevo usuario invitado
+      const nombre = 'invitado';
+      const email = `invitado_${Date.now()}@example.com`; // Generar un email único
+      const password_hash = 'hashed_password'; // Un valor dummy, normalmente sería un hash real
+  
+      const [result] = await conexion.query(
+        'INSERT INTO Usuarios (nombre, email, password_hash) VALUES (?, ?, ?);',
+        [nombre, email, password_hash]
+      );
+      
+      return result.insertId; // Devolver el ID del nuevo usuario creado
+    } catch (error) {
+      console.error('Error al crear usuario invitado:', error);
+      throw error;
+    } finally {
+      conexion.release(); // Liberar la conexión al finalizar
+    }
+  }
 
 
 
@@ -96,5 +117,7 @@ module.exports = {
     obtenerPorId,
     obtenerIDPorNombre,
     registrarLogin,
-    historialLogin
+    historialLogin,
+    CrearInvitado,
+    //BorrarInvitado
 };
