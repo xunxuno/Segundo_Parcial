@@ -89,6 +89,7 @@ async function historialLogin(id_usuario) {
 
 
 
+
 module.exports = {
     registrar,
     obtenerPorNombre,

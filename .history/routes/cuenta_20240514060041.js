@@ -5,20 +5,14 @@ const passport = require('passport');
 const { historialLogin } = require('../database/tables/usuarios');
 
 // Rutas públicas
-router.get('/', async (req, res) => {
-  const id_usuario = req.user && req.user.id; // Obtén el id_usuario del objeto req.user
-  if (!id_usuario) {
-      return res.status(401).render('error', { error: 'Usuario no autenticado' });
-  }
-
+router.get('/:id_usuario', async (req, res) => {
+  const { id_usuario } = req.params;
   try {
-      console.log('ID Usuario en la ruta:', id_usuario); // Log del ID de usuario en la ruta
-      const historialLogins = await historialLogin(id_usuario);
-      console.log('Historial obtenido:', historialLogins); // Log del historial obtenido
-      res.render('cuenta', { 
+      const historial = await historialLogin(id_usuario);
+      res.render('historial', { 
           title: 'Historial de Login', 
-          user: req.user ? `${req.user.nombre}` : '',
-          historialLogins: historialLogins 
+          user: req.user != null ? `${req.user.nombre}` : '',
+          historial: historial 
       });
   } catch (error) {
       console.error('Error al obtener el historial de login:', error);

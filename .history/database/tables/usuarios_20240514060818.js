@@ -74,11 +74,13 @@ async function registrarLogin(id) {
 async function historialLogin(id_usuario) {
     const conexion = await obtenerConexion();
     try {
+        console.log('ID Usuario:', id_usuario); // Log del ID de usuario
         const [historialLOG] = await conexion.query(
             'SELECT fecha_acceso FROM Historial_Login WHERE id_usuario = ? ORDER BY fecha_acceso DESC;',
             [id_usuario]
         );
-        return historialLOG || []; // Asegúrate de devolver un array
+        console.log('Resultado de la consulta:', historialLOG); // Log del resultado de la consulta
+        return historialLOG;
     } catch (error) {
         console.error('Error al obtener el historial login:', error);
         throw error;
@@ -86,7 +88,6 @@ async function historialLogin(id_usuario) {
         conexion.release(); // Liberar la conexión al finalizar
     }
 }
-
 
 
 module.exports = {

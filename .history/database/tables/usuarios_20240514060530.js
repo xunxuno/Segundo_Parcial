@@ -78,7 +78,8 @@ async function historialLogin(id_usuario) {
             'SELECT fecha_acceso FROM Historial_Login WHERE id_usuario = ? ORDER BY fecha_acceso DESC;',
             [id_usuario]
         );
-        return historialLOG || []; // Asegúrate de devolver un array
+        console.log('Resultado de la consulta:', historialLOG); // Agrega un log para ver el resultado de la consulta
+        return historialLOG;
     } catch (error) {
         console.error('Error al obtener el historial login:', error);
         throw error;
@@ -86,7 +87,6 @@ async function historialLogin(id_usuario) {
         conexion.release(); // Liberar la conexión al finalizar
     }
 }
-
 
 
 module.exports = {

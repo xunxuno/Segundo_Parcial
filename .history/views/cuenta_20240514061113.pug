@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    .main_container
+        .center-text
+            h1 #{title} de #{user}
+            if historial && historial.length > 0
+                ul
+                    each log in historial
+                        li Fecha de acceso: #{log.fecha_acceso}
+            else
+                p No hay registros de login para este usuario.

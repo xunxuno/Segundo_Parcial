@@ -4,10 +4,10 @@ block content
     .main_container
         .center-text
             h1 Historial de #{user}
-            if historialLogins && historialLogins.length > 0
+            if datosHistorial && datosHistorial.length > 0
                 // Itera sobre cada registro del historial
-                each registro in historialLogins
+                each registro in datosHistorial
                     .historial-item
-                        p Fecha de acceso: #{new Date(registro.fecha_acceso).toLocaleString()}
+                        p Fecha de acceso: #{new Date(registro.fecha_acceso).toLocaleString()} 
             else
                 p No hay registros de login para este usuario.

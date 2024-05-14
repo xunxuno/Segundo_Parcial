@@ -13,12 +13,12 @@ router.get('/', async (req, res) => {
 
   try {
       console.log('ID Usuario en la ruta:', id_usuario); // Log del ID de usuario en la ruta
-      const historialLogins = await historialLogin(id_usuario);
-      console.log('Historial obtenido:', historialLogins); // Log del historial obtenido
-      res.render('cuenta', { 
+      const datosHistorial = await historialLogin(id_usuario);
+      console.log('Historial obtenido:', datosHistorial); // Log del historial obtenido
+      res.render('historial', { 
           title: 'Historial de Login', 
           user: req.user ? `${req.user.nombre}` : '',
-          historialLogins: historialLogins 
+          datosHistorial: datosHistorial 
       });
   } catch (error) {
       console.error('Error al obtener el historial de login:', error);
