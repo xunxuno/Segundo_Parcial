@@ -12,7 +12,7 @@ const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 const authMiddleWare = require('./middlewares/authMiddleware');
 const bodyParser = require('body-parser');
-//const carritoController = require('./controllers/carritoController');
+const {CrearInvitado} = require('./database/tables/usuarios');
 
 //Configura Cookie Parser
 app.use(cookieParser());
@@ -23,7 +23,25 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //Configura DotEnv
 dotenv.config();
 
+// Middleware para verificar si hay un usuario autenticado
+async function verificarAutenticacion(req, res, next) {
+  // Verificamos si hay un usuario autenticado en la sesión
+  if (!req.user) {
+    // Si no hay un usuario autenticado, ejecutamos la función CrearInvitado
+    try {
+      await CrearInvitado();
+      console.log('Invitado creado correctamente');
+    } catch (error) {
+      console.error('Error al crear invitado:', error);
+      // Maneja el error según tus necesidades
+    }
+  }
+  // Pasamos al siguiente middleware en la cadena de middleware
+  next();
+}
 
+// Agregamos el middleware de verificación de autenticación a la cadena de middleware
+app.use(verificarAutenticacion);
 
 // Configurar middleware para manejar sesiones
 app.use(session({

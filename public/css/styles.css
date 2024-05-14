@@ -6,45 +6,33 @@ body {
 nav {
   display: flex;
   background-color: grey;
-  padding: 0;
-  margin-top: 0;
-  margin-left: 0;
+  padding: 10px;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
 }
-
 nav ul {
   list-style: none;
-  margin-right: 30%;
-  margin-left: 30%;
+  margin: 0 auto;
   padding: 0;
   display: flex;
-  text-decoration: none;
 }
-
 nav ul li {
-  list-style: none;
-  text-decoration: none;
   color: #ffb700;
-  margin-right: 50%;
+  margin-right: 20px;
 }
-
 nav ul li:last-child {
-  margin-right: 10%;
+  margin-right: 0;
 }
 
 .main_container {
-  align-items: center;
-  padding-right: 20%;
-  padding-left: 20%;
-  padding-top: 2%;
-  margin-top: 40px;
+  padding: 2% 5%;
+  margin-top: 70px;
 }
 
 .center-text {
-  margin: 0% 20% 0 20%;
+  margin: 0 auto;
   max-width: 800px;
   text-align: center;
 }
@@ -52,15 +40,14 @@ nav ul li:last-child {
 .titulo-text {
   text-align: center;
 }
-
 .titulo-text label {
-  font-size: 200%;
+  font-size: 2em;
   font-weight: bold;
 }
 
 .text-content #texto {
   text-align: center;
-  font-size: 230%;
+  font-size: 2.3em;
   height: 200px;
 }
 
@@ -68,13 +55,12 @@ nav ul li:last-child {
   margin-top: 70px;
 }
 .result-text label {
-  font-size: 200%;
+  font-size: 2em;
   font-weight: bold;
 }
-
 .result-text #texto {
   text-align: center;
-  font-size: 230%;
+  font-size: 2.3em;
   height: 200px;
 }
 
@@ -86,6 +72,10 @@ nav ul li:last-child {
 h1 {
   font-size: 2em;
   color: white;
+}
+
+a {
+  list-style: none;
 }
 
 p {
@@ -136,7 +126,15 @@ select {
 }
 
 input[type=password] {
-  width: 95%;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type=email] {
+  width: 100%;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
@@ -156,18 +154,28 @@ input[type=password] {
 
 button {
   padding: 10px 20px;
-  margin: 2% 50% 0 45%;
+  margin: 20px auto;
   background-color: #6a5111;
   color: white;
   border: none;
   cursor: pointer;
+  width: 100px;
+  align-content: center;
+  align-items: center;
+}
+
+button.regresar {
+  display: flex;
+  margin: 0, 40%, 0, 40%;
+  align-content: center;
+  align-items: center;
 }
 
 button:hover {
   background-color: #ffb700;
-  /* Estilos CSS para el historial */
 }
 
+/* Estilos CSS para el historial */
 .historial-item {
   border: 1px solid #ccc;
   border-radius: 5px;

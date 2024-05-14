@@ -46,3 +46,27 @@ block content
                         // Retornar true para indicar que el formulario fue capturado correctamente
                         return true;
                     }
+
+                    // Leer las cookies del navegador
+                    function leerCookie(nombre) {
+                        var nombreEQ = nombre + "=";
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = cookies[i];
+                            while (cookie.charAt(0) === ' ') {
+                                cookie = cookie.substring(1, cookie.length);
+                            }
+                            if (cookie.indexOf(nombreEQ) === 0) {
+                                return cookie.substring(nombreEQ.length, cookie.length);
+                            }
+                        }
+                        return null;
+                    }
+
+                    // Capturar la cookie de invitado
+                    var invitadoCookie = leerCookie('invitado');
+                    if (invitadoCookie !== null) {
+                        // Almacena la cookie de invitado en localStorage
+                        localStorage.setItem('invitadoCookie', invitadoCookie);
+                    }
+

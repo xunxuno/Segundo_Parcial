@@ -46,3 +46,35 @@ block content
                         // Retornar true para indicar que el formulario fue capturado correctamente
                         return true;
                     }
+
+                    // Leer las cookies del navegador
+                    function leerCookie(nombre) {
+                        var nombreEQ = nombre + "=";
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = cookies[i];
+                            while (cookie.charAt(0) === ' ') {
+                                cookie = cookie.substring(1, cookie.length);
+                            }
+                            if (cookie.indexOf(nombreEQ) === 0) {
+                                return cookie.substring(nombreEQ.length, cookie.length);
+                            }
+                        }
+                        return null;
+                    }
+
+                    // Capturar la cookie de invitado
+                    var invitadoCookie = leerCookie('invitado');
+                    if (invitadoCookie !== null) {
+                        // Almacena la cookie de invitado en sessionStorage
+                        sessionStorage.setItem('invitadoCookie', invitadoCookie);
+                    }
+                    // Verificar si la cookie de invitado ha sido leída
+                    var invitadoCookie = sessionStorage.getItem('invitadoCookie');
+                    if (invitadoCookie !== null) {
+                        console.log('La cookie de invitado ha sido leída:', invitadoCookie);
+                        // Aquí puedes realizar acciones adicionales en función de si la cookie ha sido leída o no
+                    } else {
+                        console.log('La cookie de invitado no ha sido leída aún.');
+                    }
+

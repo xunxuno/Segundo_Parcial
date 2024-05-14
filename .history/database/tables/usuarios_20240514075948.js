@@ -87,6 +87,32 @@ async function historialLogin(id_usuario) {
     }
 }
 
+//crear usuario invitado
+async function CrearInvitado() {
+    const conexion = await obtenerConexion();
+    try {
+        await conexion.query('INSERT INTO Usuarios (id, nombre, email, password_hash) VALUES (1000, invitado, invitado@invitado.com,iiiiiiiiiiiii)');
+        console.log('invitado registrado correctamente');
+    } catch (error) {
+        console.error('Error al registrar invitado:', error);
+        throw error;
+    } finally {
+        conexion.release(); // Liberar la conexión al finalizar
+    }
+}
+ // borrar invitado
+ async function BorrarInvitado() {
+    const conexion = await obtenerConexion();
+    try {
+        await conexion.query('DELETE FROM Usuarios WHERE (id) = 1000');
+        console.log('invitado borrado correctamente');
+    } catch (error) {
+        console.error('Error al borarr invitado:', error);
+        throw error;
+    } finally {
+        conexion.release(); // Liberar la conexión al finalizar
+    }
+ }
 
 
 module.exports = {
