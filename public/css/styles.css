@@ -165,6 +165,14 @@ button {
 
 button:hover {
   background-color: #ffb700;
+  /* Estilos CSS para el historial */
+}
+
+.historial-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=styles.css.map */
