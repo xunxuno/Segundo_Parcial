@@ -1,9 +1,19 @@
 const palabraModel = require('../models/palabraModel');
 const { convertir } = require('../database/tables/operaciones');
+const { obtenerUltimaOperacion } = require('../database/tables/operaciones');
 
 const palabraCache = {};
 
 
+async function obtenerDatosUltimaOperacion(usuarioId) {
+    try {
+        const datos = await obtenerUltimaOperacion(usuarioId);
+        return datos;
+    } catch (error) {
+        console.error('Error al obtener los datos de la última operación:', error);
+        throw error;
+    }
+}
 
 // Manejar la solicitud POST y dirigirla al controlador
 const procesarDatos = (req, res) => {
@@ -564,4 +574,4 @@ const procesarDatos = (req, res) => {
         break;
 }
 };
-module.exports = { procesarDatos, palabraCache }; 
+module.exports = { procesarDatos, palabraCache, obtenerDatosUltimaOperacion }; 

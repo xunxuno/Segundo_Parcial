@@ -1,5 +1,6 @@
 const palabraModel = require('../models/palabraModel');
 const { convertir } = require('../database/tables/operaciones');
+const { obtenerUltimaOperacion } = require('../database/tables/operaciones');
 
 const palabraCache = {};
 
@@ -564,4 +565,4 @@ const procesarDatos = (req, res) => {
         break;
 }
 };
-module.exports = { procesarDatos, palabraCache }; 
+module.exports = { procesarDatos, palabraCache, obtenerDatosUltimaOperacion }; 

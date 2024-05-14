@@ -3,7 +3,7 @@ const router = express.Router();
 const authMiddleware = require('../middlewares/authMiddleware');
 const { procesarDatos, palabraCache } = require('../controllers/palabraController');
 const { convertir } = require('../database/tables/operaciones');
-const { ultimaConversion } = require('../database/tables/operaciones');
+const { obtenerUltimaOperacion } = require('../database/tables/operaciones');
 const {obtenerIDPorNombre} = require('../database/tables/usuarios');
 const palabraController = require('../controllers/palabraController');
 
@@ -17,21 +17,18 @@ router.get('/', async(req, res) => {
 
     //const usuario =  obtenerIdUsuario(); // Aquí obtén el ID del usuario
     const id_usuario =  await obtenerIDPorNombre(req.user.nombre);
+    console.log(id_usuario);
     const palabra_original = palabraCache.textoOriginal;
     const idioma_original = palabraCache.origen;
     const idioma_destino = palabraCache.destino;
     const nueva_palabra = palabraCache.resultado;
-    let datosUltimaConversion = null;
 
     try {
         await convertir(id_usuario, palabra_original, idioma_original, idioma_destino, nueva_palabra);
-        datosUltimaConversion = await ultimaConversion(id_usuario);
         console.log('Datos enviados con éxito a la función convertir');
-        res.render('result', { 
-          title: 'Result', 
-          palabraCache: palabraCache,
-          datosUltimaConversion: datosUltimaConversion // Pasar datos a la vista
-      });
+        await obtenerUltimaOperacion(id_usuario);
+        console.log(obtenerUltimaOperacion);
+        res.render('result', { title: 'Result', palabraCache: palabraCache });
         // Aquí puedes hacer otras acciones después de enviar los datos
     } catch (error) {
         console.error('Error al enviar datos a la función convertir:', error);
@@ -48,6 +45,16 @@ router.get('/', async(req, res) => {
   }
 });
 
+/*router.get('/', async(req, res) => {
+  try {
+      const usuarioId = req.user.id; // Suponiendo que tienes el ID del usuario en el objeto de solicitud
+      const datos = await palabraController.obtenerDatosUltimaOperacion(usuarioId);
+      res.render('result', { title: 'Result', datos: datos });
+  } catch (error) {
+      console.error('Error al obtener los datos de la última operación:', error);
+      res.render('error', { error: 'Error al obtener los datos de la última operación' });
+  }
+});*/
 
 
 // Definir la ruta POST para /result y usar la función procesarDatos del controlador de palabras

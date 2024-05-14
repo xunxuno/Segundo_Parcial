@@ -30,30 +30,14 @@ async function obtenerHistorial(id_usuario){
 }
 
 // funcion para obtener la ultima palabra convertida
-/*async function ultimaConversion (id_usuario) {
-    const conexion = await obtenerConexion();
+async function ultimaConversion (id_usuario) {
+    
     try {
-        const [resultado] = await conexion.query('SELECT palabra_original, idioma_original, idioma_destino, nueva_palabra FROM Operaciones WHERE id_usuario = ? ORDER BY fecha_operacion DESC LIMIT 1;', [id_usuario]);
-        return resultado;
+        const conexion = await obtenerConexion();
+        conts [resultado] = await conexion.query('SELECT palabra_original, idioma_original, idioma_destino, nueva_palabra FROM Operaciones WHERE id_usuario = ? ORDER BY fecha_operacion DESC LIMIT 1;', [id_usuario]);
+        return results;
     } catch (error) {
         console.error('error al obetener el historial', error);
-        throw error;
-    } finally {
-        conexion.release(); // Liberar la conexión al finalizar
-    }
-}*/
-
-async function ultimaConversion(id_usuario) {
-    const conexion = await obtenerConexion();
-    try {
-        const [resultados] = await conexion.query('SELECT palabra_original, idioma_original, idioma_destino, nueva_palabra FROM Operaciones WHERE id_usuario = ? ORDER BY fecha_operacion DESC LIMIT 1;', [id_usuario]);
-        if (resultados.length > 0) {
-            return resultados[0]; // Devolver el primer objeto del array de resultados
-        } else {
-            return null; // Si no hay resultados, devolver null
-        }
-    } catch (error) {
-        console.error('Error al obtener el historial', error);
         throw error;
     } finally {
         conexion.release(); // Liberar la conexión al finalizar
@@ -65,5 +49,4 @@ async function ultimaConversion(id_usuario) {
 module.exports = {
     convertir,
     obtenerHistorial,
-    ultimaConversion
 };

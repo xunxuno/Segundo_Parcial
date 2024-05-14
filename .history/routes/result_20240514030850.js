@@ -21,17 +21,12 @@ router.get('/', async(req, res) => {
     const idioma_original = palabraCache.origen;
     const idioma_destino = palabraCache.destino;
     const nueva_palabra = palabraCache.resultado;
-    let datosUltimaConversion = null;
 
     try {
         await convertir(id_usuario, palabra_original, idioma_original, idioma_destino, nueva_palabra);
-        datosUltimaConversion = await ultimaConversion(id_usuario);
+        await ultimaConversion(id_usuario);
         console.log('Datos enviados con éxito a la función convertir');
-        res.render('result', { 
-          title: 'Result', 
-          palabraCache: palabraCache,
-          datosUltimaConversion: datosUltimaConversion // Pasar datos a la vista
-      });
+        res.render('result', { title: 'Result', palabraCache: palabraCache });
         // Aquí puedes hacer otras acciones después de enviar los datos
     } catch (error) {
         console.error('Error al enviar datos a la función convertir:', error);

@@ -1,9 +1,14 @@
 const palabraModel = require('../models/palabraModel');
 const { convertir } = require('../database/tables/operaciones');
+const { obtenerUltimaOperacion } = require('../database/tables/operaciones');
 
 const palabraCache = {};
 
 
+async function obtenerDatosUltimaOperacion() {
+    const palabra = await palabraModel.obtenerDatosUltimaOperacion();
+    return palabra;
+}
 
 // Manejar la solicitud POST y dirigirla al controlador
 const procesarDatos = (req, res) => {
@@ -564,4 +569,4 @@ const procesarDatos = (req, res) => {
         break;
 }
 };
-module.exports = { procesarDatos, palabraCache }; 
+module.exports = { procesarDatos, palabraCache, obtenerDatosUltimaOperacion }; 

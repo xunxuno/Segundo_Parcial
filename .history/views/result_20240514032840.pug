@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    .main_container
+        .center-text
+            h1 Resultado
+            // Muestra los valores capturados almacenados en palabraCache
+            p Texto original: #{palabraCache.textoOriginal}
+            p Resultado: #{palabraCache.resultado}
+            p Origen: #{palabraCache.origen}
+            p Destino: #{palabraCache.destino}
+            
+            p Palabra Original: #{datosUltimaConversion.palabra_original}
+            p Idioma Original: #{datosUltimaConversion.idioma_original}
+            p Idioma Destino: #{datosUltimaConversion.idioma_destino}
+            p Nueva Palabra: #{datosUltimaConversion.nueva_palabra}

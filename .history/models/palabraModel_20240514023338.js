@@ -13,6 +13,15 @@ class Palabra {
     }
 }
 
+async function obtenerDatosUltimaOperacion(id_usuario) {
+  try {
+      const datos = await obtenerUltimaOperacion(usuarioId);
+      return datos;
+  } catch (error) {
+      console.error('Error al obtener los datos de la última operación:', error);
+      throw error;
+  }
+}
 
 
 

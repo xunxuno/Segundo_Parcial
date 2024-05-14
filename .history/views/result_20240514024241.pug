@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    .main_container
+        .center-text
+            h1 Resultado
+            // Muestra los valores capturados almacenados en palabraCache
+            p Texto original: #{palabraCache.textoOriginal}
+            p Resultado: #{palabraCache.resultado}
+            p Origen: #{palabraCache.origen}
+            p Destino: #{palabraCache.destino}

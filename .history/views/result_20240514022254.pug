@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    .main_container
+        .center-text
+            h1 Resultado
+            // Mostrar los datos obtenidos de la última operación
+            p Texto original: #{datos}
+            p Resultado: #{datos.nueva_palabra}
+            p Origen: #{datos.idioma_original}
+            p Destino: #{datos.idioma_destino}

@@ -25,7 +25,7 @@ router.get('/', async(req, res) => {
 
     try {
         await convertir(id_usuario, palabra_original, idioma_original, idioma_destino, nueva_palabra);
-        datosUltimaConversion = await ultimaConversion(id_usuario);
+        await ultimaConversion(id_usuario);
         console.log('Datos enviados con éxito a la función convertir');
         res.render('result', { 
           title: 'Result', 
