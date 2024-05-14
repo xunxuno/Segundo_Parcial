@@ -192,7 +192,6 @@ const procesarDatos = (req, res) => {
                 break;
             default:
                 console.log('error 2');
-                res.redirect('/eg');
                 break;
         }
         break;
@@ -285,7 +284,6 @@ const procesarDatos = (req, res) => {
                 break;
             default:
                 console.log('error 3');
-                res.redirect('/eg');
                 break;
         }
         break;
@@ -377,7 +375,6 @@ const procesarDatos = (req, res) => {
                 break;
             default:
                 console.log('error 4');
-                res.redirect('/eg');
                 break;
         }
         break;
@@ -469,7 +466,6 @@ const procesarDatos = (req, res) => {
                 break;
             default:
                 console.log('error 5');
-                res.redirect('/eg');
                 break;
         }
         break;
@@ -561,13 +557,11 @@ const procesarDatos = (req, res) => {
                 break;
             default:
                 console.log('error 6');
-                res.redirect('/eg');
                 break;
         }
         break;
     default:
         console.log('error 7');
-        res.redirect('/eg');
         break;
 }
 };

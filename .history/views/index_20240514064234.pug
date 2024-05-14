@@ -1,0 +1,66 @@
+extends layout
+
+block content
+    .main_container
+        .center-text
+            h1 #{title}
+            p Todo ArchiMago necesita esconder sus secretos. 
+            p Entregale al Omnissiah tu fé y se recompensado con conocimiento.
+            p !Que el Dios Maquina te guie al encriptar tu mensaje¡
+        .text-content
+            form(action="/result", method="post", onsubmit="return capturarDatos(event)")
+                .titulo-text
+                    label(for="texto", class="tituloT") Texto a Encriptar:
+                    input(type="text", id="texto", name="texto", required)
+                    br
+                label(for="origen") De:
+                select(id="origen", name="origen", required, onchange="actualizarDestino()")  
+                    option(value="es") Español
+                    option(value="coc") Codigo Cesar
+                    option(value="sus") Sustitucion
+                    option(value="b64") Base 64
+                    option(value="hex") Hexadecimal
+                    option(value="bin") Binario
+                    // Agrega más opciones según tus necesidades
+                br
+                label(for="destino") A:
+                select(id="destino", name="destino", required)
+                    option(value="coc") Codigo Cesar
+                    option(value="sus") Sustitucion
+                    option(value="b64") Base 64
+                    option(value="hex") Hexadecimal
+                    option(value="bin") Binario
+                    option(value="es") Español
+                    // Agrega más opciones según tus necesidades
+                br
+                button(type="submit") Encriptar
+
+            script.
+                // Objeto para almacenar los datos del formulario
+                var palabraCache = {};
+
+                // Función para capturar los datos del formulario y almacenarlos en palabraCache
+                function capturarDatos(event) {
+                    palabraCache.texto = document.getElementById('texto').value;
+                    palabraCache.origen = document.getElementById('origen').value;
+                    palabraCache.destino = document.getElementById('destino').value;
+                    event.preventDefault();
+                    // Retornar true para indicar que el formulario fue capturado correctamente
+                    return true;
+                }
+
+                // Función para actualizar las opciones de destino según la selección en el menú de origen
+                function actualizarDestino() {
+                    var origen = document.getElementById('origen').value;
+                    var destinoSelect = document.getElementById('destino');
+                    for (var i = 0; i < destinoSelect.options.length; i++) {
+                        if (destinoSelect.options[i].value === origen) {
+                            destinoSelect.options[i].disabled = true;
+                        } else {
+                            destinoSelect.options[i].disabled = false;
+                        }
+                    }
+                }
+
+                // Llamar a la función al cargar la página para asegurarse de que las opciones de destino estén actualizadas
+                actualizarDestino();
