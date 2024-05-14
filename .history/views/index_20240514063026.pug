@@ -52,11 +52,19 @@ block content
                     // Función para actualizar las opciones de destino según la selección en el menú de origen
                     function actualizarDestino() {
                         var origen = document.getElementById('origen').value;
-                        var destinoOptions = document.getElementById('destino').getElementsByTagName('option');
-                        for (var i = 0; i < destinoOptions.length; i++) {
-                            destinoOptions[i].disabled = false;
-                            if (destinoOptions[i].value === origen) {
-                                destinoOptions[i].disabled = true;
+                        var destinoSelect = document.getElementById('destino');
+                        // Eliminar todas las opciones de destino
+                        while (destinoSelect.firstChild) {
+                            destinoSelect.removeChild(destinoSelect.firstChild);
+                        }
+                        // Volver a agregar las opciones de destino, excepto la que coincide con la selección de origen
+                        var opcionesDestino = ["coc", "sus", "b64", "hex", "bin", "es"]; // todas las opciones disponibles
+                        for (var i = 0; i < opcionesDestino.length; i++) {
+                            if (opcionesDestino[i] !== origen) {
+                                var option = document.createElement('option');
+                                option.value = opcionesDestino[i];
+                                option.text = opcionesDestino[i];
+                                destinoSelect.appendChild(option);
                             }
                         }
                     }
